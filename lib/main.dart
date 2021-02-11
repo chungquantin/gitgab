@@ -2,20 +2,25 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_v2/components/IconWithBadge.dart';
 import 'package:flutter_chat_v2/screens/home_screen.dart';
+import 'package:flutter_chat_v2/themes.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(ChangeNotifierProvider(
+    create: (_) => AppTheme(),
+    child: MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    print(AppTheme.of(context, listen: true).currentThemeKey);
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Chap V2',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
       home: MyHomePage(),
+      theme: AppTheme.of(context, listen: true).currentTheme,
     );
   }
 }
@@ -30,22 +35,50 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int __selectedIndex = 0;
 
+  AppTheme _theme;
+
+    @override
+    void didChangeDependencies() {
+      if (_theme == null) {
+        _theme = AppTheme.of(context);
+      }
+
+      super.didChangeDependencies();
+    }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).primaryColor,
       appBar: AppBar(
         title: Text("Hello World"),
+        backgroundColor: Theme.of(context).primaryColor,
+        elevation: 0.0,
       ),
       body: this.getBody(),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        currentIndex: __selectedIndex,
-        items: this.getNavigationBarItems(),
-        onTap: (int index) {
-          setState(() {
-            __selectedIndex = index;
-          });
-        },
+      bottomNavigationBar: Container(
+        padding: EdgeInsets.all(15),
+        decoration: BoxDecoration(),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(10),
+          child: BottomNavigationBar(
+            elevation: 3.0,
+            selectedItemColor:
+                Theme.of(context).bottomNavigationBarTheme.selectedItemColor,
+            unselectedItemColor:
+                Theme.of(context).bottomNavigationBarTheme.unselectedItemColor,
+            backgroundColor:
+                Theme.of(context).bottomNavigationBarTheme.backgroundColor,
+            type: BottomNavigationBarType.fixed,
+            currentIndex: __selectedIndex,
+            items: this.getNavigationBarItems(),
+            onTap: (int index) {
+              setState(() {
+                __selectedIndex = index;
+              });
+            },
+          ),
+        ),
       ),
     );
   }
@@ -53,21 +86,34 @@ class _MyHomePageState extends State<MyHomePage> {
   List<BottomNavigationBarItem> getNavigationBarItems() {
     return [
       BottomNavigationBarItem(
-          icon: IconWithBadge(icon: CupertinoIcons.chat_bubble_2_fill, badge: "1",),
-          // ignore: deprecated_member_use
-          title: Text("Chat")),
+        icon: IconWithBadge(
+          icon: CupertinoIcons.chat_bubble_2_fill,
+          badge: "",
+        ),
+        // ignore: deprecated_member_use
+        title: Text("Chat"),
+      ),
       BottomNavigationBarItem(
-          icon: IconWithBadge(icon: Icons.group, badge: "",),
+          icon: IconWithBadge(
+            icon: Icons.group,
+            badge: "1",
+          ),
           // ignore: deprecated_member_use
           title: Text("Groups")),
       BottomNavigationBarItem(
-          icon: Icon(Icons.share),
+          icon: IconWithBadge(
+            icon: Icons.share,
+            badge: "",
+          ),
           // ignore: deprecated_member_use
           title: Text("Social")),
       BottomNavigationBarItem(
-          icon: Icon(Icons.extension_sharp),
+          icon: IconWithBadge(
+            icon: Icons.extension_rounded,
+            badge: "",
+          ),
           // ignore: deprecated_member_use
-          title: Text("Extended"))
+          title: Text("Extension"))
     ];
   }
 

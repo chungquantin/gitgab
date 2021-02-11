@@ -20,7 +20,7 @@ class IconWithBadge extends StatelessWidget {
                   child: Container(
                     padding: EdgeInsets.all(1),
                     decoration: BoxDecoration(
-                      color: Colors.red,
+                      color:Theme.of(context).accentColor,
                       borderRadius: BorderRadius.circular(50),
                     ),
                     constraints: BoxConstraints(
