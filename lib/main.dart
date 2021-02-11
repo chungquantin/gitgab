@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_chat_v2/components/IconWithBadge.dart';
 import 'package:flutter_chat_v2/screens/home_screen.dart';
 import 'package:flutter_chat_v2/themes.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -50,19 +51,12 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
-      appBar: AppBar(
-        title: Text("Hello World"),
-        backgroundColor: Theme.of(context).primaryColor,
-        elevation: 0.0,
-      ),
-      body: this.getBody(),
+      body: this._getBody(),
       bottomNavigationBar: Container(
         padding: EdgeInsets.all(15),
-        decoration: BoxDecoration(),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(10),
           child: BottomNavigationBar(
-            elevation: 3.0,
             selectedItemColor:
                 Theme.of(context).bottomNavigationBarTheme.selectedItemColor,
             unselectedItemColor:
@@ -71,7 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 Theme.of(context).bottomNavigationBarTheme.backgroundColor,
             type: BottomNavigationBarType.fixed,
             currentIndex: __selectedIndex,
-            items: this.getNavigationBarItems(),
+            items: this._getNavigationBarItems(),
             onTap: (int index) {
               setState(() {
                 __selectedIndex = index;
@@ -83,7 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  List<BottomNavigationBarItem> getNavigationBarItems() {
+  List<BottomNavigationBarItem> _getNavigationBarItems() {
     return [
       BottomNavigationBarItem(
         icon: IconWithBadge(
@@ -117,7 +111,7 @@ class _MyHomePageState extends State<MyHomePage> {
     ];
   }
 
-  Widget getBody() {
+  Widget _getBody() {
     switch (this.__selectedIndex) {
       case 0:
         return ChatScreen();

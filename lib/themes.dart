@@ -9,7 +9,7 @@ final Map<AppThemeKeys, ThemeData> _themes = {
       primaryColor: HexColor("#161b22"),
       accentColor: Colors.green,
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
-          backgroundColor: Colors.white,
+          backgroundColor: HexColor("#2B3137"),
           selectedItemColor: Colors.white,
           unselectedItemColor: Colors.grey[700]),
       textTheme: TextTheme()),
