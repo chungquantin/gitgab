@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_chat_v2/components/IconWithBadge.dart';
 import 'package:flutter_chat_v2/screens/home_screen.dart';
 
 void main() {
@@ -36,6 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: this.getBody(),
       bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
         currentIndex: __selectedIndex,
         items: this.getNavigationBarItems(),
         onTap: (int index) {
@@ -50,17 +53,21 @@ class _MyHomePageState extends State<MyHomePage> {
   List<BottomNavigationBarItem> getNavigationBarItems() {
     return [
       BottomNavigationBarItem(
-          icon: Icon(Icons.chat),
+          icon: IconWithBadge(icon: CupertinoIcons.chat_bubble_2_fill, badge: "1",),
           // ignore: deprecated_member_use
           title: Text("Chat")),
       BottomNavigationBarItem(
-          icon: Icon(Icons.person),
+          icon: IconWithBadge(icon: Icons.group, badge: "",),
           // ignore: deprecated_member_use
-          title: Text("Profile")),
+          title: Text("Groups")),
       BottomNavigationBarItem(
-          icon: Icon(Icons.person),
+          icon: Icon(Icons.share),
           // ignore: deprecated_member_use
-          title: Text("Profile"))
+          title: Text("Social")),
+      BottomNavigationBarItem(
+          icon: Icon(Icons.extension_sharp),
+          // ignore: deprecated_member_use
+          title: Text("Extended"))
     ];
   }
 
