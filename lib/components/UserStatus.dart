@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-enum UserStatus { online, offline, busy, silence }
+enum UserStatus { online, offline, busy, silence, none }
 
 class UserStatusComp extends StatefulWidget {
   final UserStatus status;
@@ -30,15 +30,25 @@ class _UserStatusCompState extends State<UserStatusComp> {
       default:
         break;
     }
-    return Container(
-      margin: EdgeInsets.only(left: 40, top: 10),
+    return widget.status != UserStatus.none ? Container(
+      margin: EdgeInsets.only(left: 45, top: 10),
       decoration: BoxDecoration(
           color: colorByStatus,
           shape: BoxShape.circle,
           border: Border.all(color: Theme.of(context).primaryColor, width: 2)),
       child: Text(
         "12",
-        style: TextStyle(color: colorByStatus, fontSize: 12),
+        style: TextStyle(color: colorByStatus, fontSize: 10),
+      ),
+    ): Container(
+      margin: EdgeInsets.only(left: 40, top: 10),
+      decoration: BoxDecoration(
+          color: Colors.white.withAlpha(0),
+          shape: BoxShape.circle,
+          border: Border.all(color: Theme.of(context).primaryColor, width: 14)),
+      child: Text(
+        "12",
+        style: TextStyle(color: Colors.white.withAlpha(0), fontSize: 12),
       ),
     );
   }

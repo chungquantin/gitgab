@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_chat_v2/components/ChatItem.dart';
+import 'package:flutter_chat_v2/components/ConversationItem.dart';
+import 'package:flutter_chat_v2/constants/mock/data.dart';
 
 class ChatScreen extends StatelessWidget {
   const ChatScreen({Key key}) : super(key: key);
@@ -61,11 +62,17 @@ class ChatScreen extends StatelessWidget {
             pinned: true,
             expandedHeight: 120,
             elevation: 0.0,
-            leading: Container(
-              margin: EdgeInsets.only(top: 7, left: 13, bottom: 7),
-              child: CircleAvatar(
-                backgroundImage: NetworkImage(
-                    "https://cdn1.tuoitre.vn/zoom/600_315/2019/5/8/avatar-publicitystill-h2019-1557284559744252594756-crop-15572850428231644565436.jpg"),
+            leading: GestureDetector(
+              onTap: () {
+                print("Current Avatar tapped!");
+              },
+              child: Container(
+                margin: EdgeInsets.only(top: 10, left: 13, bottom: 10),
+                decoration: BoxDecoration(shape: BoxShape.circle),
+                child: CircleAvatar(
+                  backgroundImage:
+                      NetworkImage(UserMockData().currentUser.imageURL),
+                ),
               ),
             ),
             actions: [IconButton(icon: Icon(Icons.settings), onPressed: () {})],
@@ -73,17 +80,15 @@ class ChatScreen extends StatelessWidget {
         SliverList(
             delegate:
                 SliverChildBuilderDelegate((BuildContext context, int index) {
+          Conversation currentConversation = ConversationMockData().getConversations[index];
           return InkWell(
               onTap: () {
                 print('Item clicked!');
               },
-              child: ChatItem(
-                text:
-                    "Alias ratione et ullam blanditiis et. Maiores iusto ut debitis omnis dolor aut quasi sequi dolores.",
-                imageURL:
-                    "https://cdn1.tuoitre.vn/zoom/600_315/2019/5/8/avatar-publicitystill-h2019-1557284559744252594756-crop-15572850428231644565436.jpg",
+              child: ConversationItem(
+                conversation: currentConversation,
               ));
-        }, childCount: 10))
+        }, childCount: ConversationMockData().getConversations.length))
       ],
     );
   }
