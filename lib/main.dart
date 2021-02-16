@@ -1,22 +1,30 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_v2/components/IconWithBadge.dart';
-import 'package:flutter_chat_v2/screens/home_screen.dart';
-import 'package:flutter_chat_v2/themes.dart';
+import 'package:flutter_chat_v2/constants/language/index.dart';
+import 'package:flutter_chat_v2/screens/chat_screen.dart';
+import 'package:flutter_chat_v2/constants/theme/themes.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  runApp(ChangeNotifierProvider(
-    create: (_) => AppTheme(),
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(
+        create: (_) => AppTheme(),
+      ),
+      ChangeNotifierProvider(
+        create: (_) => Language(),
+      ),
+    ],
     child: MyApp(),
   ));
 }
 
+// AppTheme.of(context, listen: true).currentTheme
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    print(AppTheme.of(context, listen: true).currentThemeKey);
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Chap V2',
@@ -30,18 +38,12 @@ class MyApp extends StatelessWidget {
                 selectedItemColor: Colors.white,
                 unselectedItemColor: Colors.grey[700]),
             textTheme: TextTheme(
-        headline3: TextStyle(
-          color: Colors.grey[100],
-          fontSize: 17
-        ),
-        bodyText1: TextStyle(
-          color: Colors.grey[600],
-          fontSize: 15,
-          fontWeight: FontWeight.normal
-        ),
-      ))
-        // AppTheme.of(context, listen: true).currentTheme
-        );
+              headline3: TextStyle(color: Colors.grey[100], fontSize: 17),
+              bodyText1: TextStyle(
+                  color: Colors.grey[600],
+                  fontSize: 15,
+                  fontWeight: FontWeight.normal),
+            )));
   }
 }
 
@@ -97,6 +99,8 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   List<BottomNavigationBarItem> _getNavigationBarItems() {
+    dynamic languageJumbotron =
+        Language.of(context).currentLanguagePack.jumbotron;
     return [
       BottomNavigationBarItem(
         icon: IconWithBadge(
@@ -104,7 +108,7 @@ class _MyHomePageState extends State<MyHomePage> {
           badge: "",
         ),
         // ignore: deprecated_member_use
-        title: Text("Chat"),
+        title: Text(languageJumbotron["chat-bottom-header"]),
       ),
       BottomNavigationBarItem(
           icon: IconWithBadge(
@@ -112,21 +116,21 @@ class _MyHomePageState extends State<MyHomePage> {
             badge: "1",
           ),
           // ignore: deprecated_member_use
-          title: Text("Groups")),
+          title: Text(languageJumbotron["groups-bottom-header"])),
       BottomNavigationBarItem(
           icon: IconWithBadge(
             icon: Icons.share,
             badge: "",
           ),
           // ignore: deprecated_member_use
-          title: Text("Social")),
+          title: Text(languageJumbotron["social-bottom-header"])),
       BottomNavigationBarItem(
           icon: IconWithBadge(
             icon: Icons.extension_rounded,
             badge: "",
           ),
           // ignore: deprecated_member_use
-          title: Text("Extension"))
+          title: Text(languageJumbotron["extension-bottom-header"]))
     ];
   }
 

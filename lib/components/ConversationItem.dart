@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_v2/components/UserStatus.dart';
+import 'package:flutter_chat_v2/constants/language/index.dart';
 import 'package:flutter_chat_v2/constants/mock/data.dart';
 import 'package:flutter_chat_v2/utils/isCurrentUser.dart';
 import 'package:flutter_chat_v2/utils/stringFormatter.dart';
@@ -11,6 +12,8 @@ class ConversationItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    dynamic languageJumbotron =
+        Language.of(context).currentLanguagePack.jumbotron;
     Message lastMessage =
         this.conversation.messages[this.conversation.messages.length - 1];
     return Container(
@@ -52,9 +55,10 @@ class ConversationItem extends StatelessWidget {
                     child: Container(
                   child: Text(
                     stringFormatter(
-                        (isCurrentUser(lastMessage.sender) ? "You: " : "${lastMessage.sender.name}: ")  +
-                            lastMessage
-                                .text,
+                        (isCurrentUser(lastMessage.sender)
+                                ? "${languageJumbotron["you"]}: "
+                                : "${lastMessage.sender.name}: ") +
+                            lastMessage.text,
                         30),
                     style: Theme.of(context).textTheme.bodyText1,
                   ),
