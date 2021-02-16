@@ -18,11 +18,30 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     print(AppTheme.of(context, listen: true).currentThemeKey);
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Chap V2',
-      home: MyHomePage(),
-      theme: AppTheme.of(context, listen: true).currentTheme,
-    );
+        debugShowCheckedModeBanner: false,
+        title: 'Flutter Chap V2',
+        home: MyHomePage(),
+        theme: ThemeData(
+            primaryColor: HexColor("#121212"),
+            accentColor: Colors.deepPurple,
+            secondaryHeaderColor: HexColor("#1D1D1D"),
+            bottomNavigationBarTheme: BottomNavigationBarThemeData(
+                backgroundColor: HexColor("#1D1D1D"),
+                selectedItemColor: Colors.white,
+                unselectedItemColor: Colors.grey[700]),
+            textTheme: TextTheme(
+        headline3: TextStyle(
+          color: Colors.grey[100],
+          fontSize: 17
+        ),
+        bodyText1: TextStyle(
+          color: Colors.grey[600],
+          fontSize: 15,
+          fontWeight: FontWeight.normal
+        ),
+      ))
+        // AppTheme.of(context, listen: true).currentTheme
+        );
   }
 }
 
@@ -38,24 +57,24 @@ class _MyHomePageState extends State<MyHomePage> {
 
   AppTheme _theme;
 
-    @override
-    void didChangeDependencies() {
-      if (_theme == null) {
-        _theme = AppTheme.of(context);
-      }
-
-      super.didChangeDependencies();
+  @override
+  void didChangeDependencies() {
+    if (_theme == null) {
+      _theme = AppTheme.of(context);
     }
+
+    super.didChangeDependencies();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
-      body: this._getBody(),
+      body: SafeArea(child: this._getBody()),
       bottomNavigationBar: Container(
-        padding: EdgeInsets.all(15),
+        padding: EdgeInsets.all(10),
         child: ClipRRect(
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(5),
           child: BottomNavigationBar(
             selectedItemColor:
                 Theme.of(context).bottomNavigationBarTheme.selectedItemColor,

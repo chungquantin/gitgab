@@ -6,13 +6,17 @@ enum AppThemeKeys { light, dark }
 
 final Map<AppThemeKeys, ThemeData> _themes = {
   AppThemeKeys.dark: ThemeData(
-      primaryColor: HexColor("#161b22"),
+      primaryColor: HexColor("#121212"),
       accentColor: Colors.green,
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
           backgroundColor: HexColor("#2B3137"),
           selectedItemColor: Colors.white,
           unselectedItemColor: Colors.grey[700]),
-      textTheme: TextTheme()),
+      textTheme: TextTheme(
+        headline3: TextStyle(
+          color: Colors.white
+        )
+      )),
   AppThemeKeys.light: ThemeData(
     primaryColor: Colors.red,
     accentColor: Colors.grey,
@@ -36,6 +40,10 @@ class AppTheme extends ChangeNotifier {
   // mình không muốn chỉnh sửa trực tiếp vào biến mà qua các setter vì còn cần notifyListeners() nữa)
   ThemeData get currentTheme => _themes[_themeKey];
   AppThemeKeys get currentThemeKey => _themeKey;
+
+  ThemeData getTheme(AppThemeKeys key) {
+    return _themes[key];
+  }
 
   // Đổi theme sang một theme khác
   void setTheme(AppThemeKeys themeKey) {
