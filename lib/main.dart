@@ -73,6 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
       body: SafeArea(child: this._getBody()),
+      floatingActionButton: this._getFloatingButton(),
       bottomNavigationBar: Container(
         padding: EdgeInsets.all(10),
         child: ClipRRect(
@@ -96,6 +97,23 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
     );
+  }
+
+  dynamic _getFloatingButton() {
+    switch (this.__selectedIndex) {
+      case 0:
+        return FloatingActionButton(
+          onPressed: () {},
+          child: Icon(CupertinoIcons.create),
+        );
+      case 1:
+        return FloatingActionButton(
+          onPressed: () {},
+          child: Icon(Icons.group_add),
+        );
+      default:
+        break;
+    }
   }
 
   List<BottomNavigationBarItem> _getNavigationBarItems() {
