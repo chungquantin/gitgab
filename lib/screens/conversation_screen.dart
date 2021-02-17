@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_chat_v2/components/ChatBubble.dart';
 import 'package:flutter_chat_v2/constants/language/index.dart';
 import 'package:flutter_chat_v2/constants/mock/data.dart';
 
@@ -98,8 +99,8 @@ class _ConversationScreenState extends State<ConversationScreen> {
             SliverList(
                 delegate: SliverChildBuilderDelegate(
                     (BuildContext context, int index) {
-              return InkWell(onTap: () => {}, child: Text("Hello World"));
-            }, childCount: 10))
+              return InkWell(onTap: () => {}, child: ChatBubble());
+            }, childCount: 5))
           ],
         ),
       ),
