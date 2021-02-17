@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_chat_v2/components/UserStatus.dart';
+import 'package:flutter_chat_v2/components/common/UserStatus.dart';
 
 class UserMockData {
   User currentUser = User(

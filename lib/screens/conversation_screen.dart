@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_chat_v2/components/ChatBubble.dart';
+import 'package:flutter_chat_v2/components/chat/ChatBubble.dart';
 import 'package:flutter_chat_v2/constants/language/index.dart';
 import 'package:flutter_chat_v2/constants/mock/data.dart';
 
@@ -90,20 +90,25 @@ class _ConversationScreenState extends State<ConversationScreen> {
     }
 
     return Scaffold(
-      backgroundColor: Theme.of(context).primaryColor,
-      body: Container(
-        margin: EdgeInsets.only(top: 5),
-        child: CustomScrollView(
-          slivers: [
-            _getSliverAppBar(),
-            SliverList(
-                delegate: SliverChildBuilderDelegate(
-                    (BuildContext context, int index) {
-              return InkWell(onTap: () => {}, child: ChatBubble());
-            }, childCount: 5))
-          ],
+        backgroundColor: Theme.of(context).primaryColor,
+        body: Container(
+          margin: EdgeInsets.only(top: 5),
+          child: CustomScrollView(
+            slivers: [
+              _getSliverAppBar(),
+              SliverList(
+                  delegate: SliverChildBuilderDelegate(
+                      (BuildContext context, int index) {
+                return InkWell(onTap: () => {}, child: ChatBubble());
+              }, childCount: 5)),
+            ],
+          ),
         ),
-      ),
-    );
+        bottomNavigationBar: Container(
+          height: 60,
+          child: Row(
+            children: [IconButton(icon: Icon(Icons.image), color: Theme.of(context).accentColor, iconSize: 30,onPressed: () {})],
+          ),
+        ));
   }
 }
