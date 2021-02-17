@@ -55,10 +55,8 @@ class ChatScreen extends StatelessWidget {
           )),
         );
 
-    return CustomScrollView(
-      scrollDirection: Axis.vertical,
-      slivers: [
-        SliverAppBar(
+      Widget _getSliverAppBar(){
+        return SliverAppBar(
             floating: true,
             title: Text(
               titleCase(languageJumbotron["chat-screen-header"]),
@@ -82,7 +80,13 @@ class ChatScreen extends StatelessWidget {
               ),
             ),
             actions: [IconButton(icon: Icon(Icons.settings), onPressed: () {})],
-            flexibleSpace: _getFlexibleSpaceArea()),
+            flexibleSpace: _getFlexibleSpaceArea());
+      }
+
+    return CustomScrollView(
+      scrollDirection: Axis.vertical,
+      slivers: [
+        _getSliverAppBar(),
         SliverList(
             delegate:
                 SliverChildBuilderDelegate((BuildContext context, int index) {
