@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_v2/components/chat/ChatBubble.dart';
+import 'package:flutter_chat_v2/components/chat/ChatComposer.dart';
 import 'package:flutter_chat_v2/constants/language/index.dart';
 import 'package:flutter_chat_v2/constants/mock/data.dart';
 
@@ -20,7 +21,7 @@ class _ConversationScreenState extends State<ConversationScreen> {
 
     Widget _getSliverAppBar() {
       return SliverAppBar(
-        floating: true,
+        collapsedHeight: 60,
         title: InkWell(
           onTap: () {},
           child: Row(
@@ -63,6 +64,7 @@ class _ConversationScreenState extends State<ConversationScreen> {
           ),
         ),
         centerTitle: false,
+        floating: true,
         pinned: true,
         elevation: 0.0,
         leading: GestureDetector(
@@ -92,7 +94,7 @@ class _ConversationScreenState extends State<ConversationScreen> {
     return Scaffold(
         backgroundColor: Theme.of(context).primaryColor,
         body: Container(
-          margin: EdgeInsets.only(top: 5),
+          // margin: EdgeInsets.only(top: 5),
           child: CustomScrollView(
             slivers: [
               _getSliverAppBar(),
@@ -104,11 +106,6 @@ class _ConversationScreenState extends State<ConversationScreen> {
             ],
           ),
         ),
-        bottomNavigationBar: Container(
-          height: 60,
-          child: Row(
-            children: [IconButton(icon: Icon(Icons.image), color: Theme.of(context).accentColor, iconSize: 30,onPressed: () {})],
-          ),
-        ));
+        bottomNavigationBar: ChatComposer());
   }
 }

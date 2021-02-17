@@ -1,5 +1,4 @@
 import 'package:flutter_chat_v2/constants/language/index.dart';
-
 class VN extends LanguagePack {
   Map<String, String> jumbotron = {
     // Header
@@ -12,8 +11,9 @@ class VN extends LanguagePack {
     "groups-bottom-header": "Nhóm",
     "social-bottom-header": "Kết nối",
     "extension-bottom-header": "Mở rộng",
-    // Button
+    // Button / Input
     "search-button-placeholder": "Tìm kiếm",
+    "chat-composer-placeholder": "Nhập vào tin nhắn...",
     // Conversation
     "you": "Bạn",
     // Status

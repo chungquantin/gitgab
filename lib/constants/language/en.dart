@@ -12,8 +12,9 @@ class EN extends LanguagePack {
     "groups-bottom-header": "Group",
     "social-bottom-header": "Social",
     "extension-bottom-header": "Extension",
-    // Button
+    // Button / Input
     "search-button-placeholder": "Search",
+    "chat-composer-placeholder": "Send a message...",
     // Conversation
     "you": "You",
     // Status
