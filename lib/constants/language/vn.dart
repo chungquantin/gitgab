@@ -22,7 +22,10 @@ class VN extends LanguagePack {
     "status-online": "Trực tuyến",
     "status-offline": "Vô tuyến",
     "status-busy": "Bận",
+    "status-none": "Ẩn",
     "status-silence": "Không có mặt",
+    "group-member":"Người đóng góp",
+    "group-members":"Người đóng góp",
     // Time
     "minutes-ago": "phút trước",
     "minute-ago": "phút trước",

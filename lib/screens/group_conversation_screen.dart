@@ -2,41 +2,24 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_v2/components/chat/ChatComposer.dart';
 import 'package:flutter_chat_v2/components/common/ReusableChatArea.dart';
-import 'package:flutter_chat_v2/components/common/UserStatus.dart';
 import 'package:flutter_chat_v2/constants/language/index.dart';
 import 'package:flutter_chat_v2/constants/mock/conversation.dart';
 
-enum ChatBubblePosition { first, middle, last }
-
-class ConversationScreen extends StatefulWidget {
+class GroupConversationScreen extends StatefulWidget {
   final Conversation conversation;
-  ConversationScreen({Key key, @required this.conversation}) : super(key: key);
+  GroupConversationScreen({Key key, @required this.conversation})
+      : super(key: key);
 
   @override
-  _ConversationScreenState createState() => _ConversationScreenState();
+  _GroupConversationScreenState createState() =>
+      _GroupConversationScreenState();
 }
 
-class _ConversationScreenState extends State<ConversationScreen> {
+class _GroupConversationScreenState extends State<GroupConversationScreen> {
   @override
   Widget build(BuildContext context) {
     dynamic languageJumbotron =
         Language.of(context).currentLanguagePack.jumbotron;
-    String formattedStatus = widget.conversation.participants.first.status
-        .toString()
-        .replaceAll("UserStatus.", "");
-
-    Widget _getStatusUI(UserStatus status) {
-      return Container(
-        margin: EdgeInsets.only(top: 2, left: 3),
-        width: 12,
-        height: 12,
-        decoration: BoxDecoration(
-            color: colorByStatus(status),
-            shape: BoxShape.circle,
-            border:
-                Border.all(color: Theme.of(context).primaryColor, width: 2)),
-      );
-    }
 
     Widget _getAppBar() {
       return AppBar(
@@ -47,22 +30,24 @@ class _ConversationScreenState extends State<ConversationScreen> {
               Container(
                 margin: EdgeInsets.only(right: 15),
                 child: CircleAvatar(
-                  backgroundImage: NetworkImage(
-                      widget.conversation.participants.first.imageURL),
+                  backgroundImage: NetworkImage(widget.conversation
+                      .getParticipantsExceptCurrentUser[0].imageURL),
                 ),
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(widget.conversation.participants.first.name),
+                  Text(widget
+                      .conversation.getParticipantsExceptCurrentUser[0].name),
                   Row(
                     children: [
                       Text(
-                        languageJumbotron["status-$formattedStatus"],
+                        widget.conversation.participants.length.toString() +
+                            (widget.conversation.participants.length > 1
+                                ? languageJumbotron["group-members"]
+                                : languageJumbotron["group-member"]),
                         style: TextStyle(fontSize: 14, color: Colors.grey),
                       ),
-                      _getStatusUI(
-                          widget.conversation.participants.first.status)
                     ],
                   )
                 ],

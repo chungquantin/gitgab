@@ -83,13 +83,14 @@ class ChatScreen extends StatelessWidget {
                 SliverChildBuilderDelegate((BuildContext context, int index) {
           Conversation currentConversation = conversationByCurrentUser[index];
           Widget conversationComponent;
-          if (currentConversation.getParticipantsExceptCurrentUser.length ==
-              1) {
+          if (currentConversation.getParticipantsExceptCurrentUser.length <= 1) {
             conversationComponent = ConversationItem(
               conversation: currentConversation.getFilterConversation,
             );
           } else {
-            conversationComponent = ConversationItemGroup();
+            conversationComponent = ConversationItemGroup(
+              conversation: currentConversation
+            );
           }
           return InkWell(
               onTap: () => Navigator.push(

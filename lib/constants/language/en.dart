@@ -23,7 +23,10 @@ class EN extends LanguagePack {
     "status-online": "Active",
     "status-offline": "Inactive",
     "status-busy": "Busy",
+    "status-none": "Hide",
     "status-silence": "No bother",
+    "group-member":"Contributor",
+    "group-members":"Contributors",
     // Time
     "minutes-ago": "minutes ago",
     "minute-ago": "minute ago",

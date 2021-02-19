@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_chat_v2/constants/mock/conversation.dart';
 
 class ConversationItemGroup extends StatelessWidget {
-  const ConversationItemGroup({Key key}) : super(key: key);
+  final Conversation conversation;
+  const ConversationItemGroup({Key key, @required this.conversation})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text("123"),
+      child: Text(conversation.id),
     );
   }
 }
