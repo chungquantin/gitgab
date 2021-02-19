@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_chat_v2/components/setting/SettingItem.dart';
+import 'package:flutter_chat_v2/components/setting/SettingSeparator.dart';
 import 'package:flutter_chat_v2/constants/language/index.dart';
 import 'package:flutter_chat_v2/constants/mock/data.dart';
 import 'package:flutter_chat_v2/constants/theme/themes.dart';
-import 'package:flutter_chat_v2/screens/language_screen.dart';
-import 'package:flutter_chat_v2/screens/theme_setting_screen.dart';
+import 'package:flutter_chat_v2/screens/LanguageScreen.dart';
+import 'package:flutter_chat_v2/screens/ThemeSettingScreen.dart';
 import 'package:flutter_chat_v2/utils/stringFormatter.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -64,6 +66,9 @@ class _SettingScreenState extends State<SettingScreen> {
               SizedBox(
                 height: 20,
               ),
+              Row(children: [
+                Text("Github", style: Theme.of(context).textTheme.headline3)
+              ]),
               SettingItem(
                   onTapEvent: () => Navigator.push(context,
                       MaterialPageRoute(builder: (_) => LanguageScreen())),
@@ -81,20 +86,7 @@ class _SettingScreenState extends State<SettingScreen> {
                           "language-${Language.of(context).currentLanguagePack.runtimeType.toString()}"],
                     )
                   ]),
-              SizedBox(
-                height: 1,
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Theme.of(context).secondaryHeaderColor,
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.only(right: 30.0, left: 120),
-                    child: Container(
-                      decoration: BoxDecoration(color: Colors.grey[800]),
-                    ),
-                  ),
-                ),
-              ),
+              SettingSeparator(),
               SettingItem(leftChildren: [
                 FaIcon(
                   FontAwesomeIcons.solidMoon,
@@ -120,6 +112,7 @@ class _SettingScreenState extends State<SettingScreen> {
                   inactiveTrackColor: Colors.grey,
                 ),
               ]),
+              SettingSeparator(),
               SettingItem(
                   onTapEvent: () => Navigator.push(context,
                       MaterialPageRoute(builder: (_) => ThemeSettingScreen())),
@@ -144,31 +137,4 @@ class _SettingScreenState extends State<SettingScreen> {
   }
 }
 
-class SettingItem extends StatelessWidget {
-  final List<Widget> leftChildren;
-  final List<Widget> rightChildren;
-  final Function onTapEvent;
-  const SettingItem(
-      {Key key,
-      @required this.leftChildren,
-      @required this.rightChildren,
-      @optionalTypeArgs this.onTapEvent})
-      : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: this.onTapEvent,
-      child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 20),
-        height: 65,
-        decoration:
-            BoxDecoration(color: Theme.of(context).secondaryHeaderColor),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [...leftChildren, Spacer(), ...rightChildren],
-        ),
-      ),
-    );
-  }
-}

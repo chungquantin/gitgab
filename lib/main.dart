@@ -2,8 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_v2/components/common/IconWithBadge.dart';
 import 'package:flutter_chat_v2/constants/language/index.dart';
-import 'package:flutter_chat_v2/constants/mock/data.dart';
-import 'package:flutter_chat_v2/screens/chat_screen.dart';
+import 'package:flutter_chat_v2/screens/ChatScreen.dart';
 import 'package:flutter_chat_v2/constants/theme/themes.dart';
 import 'package:provider/provider.dart';
 
@@ -26,7 +25,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Flutter Chap V2',
+        title: 'GitGab',
         home: MyHomePage(),
         theme: AppTheme.of(context, listen: true).currentTheme);
   }

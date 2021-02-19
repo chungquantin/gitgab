@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_v2/constants/mock/message.dart';
-import 'package:flutter_chat_v2/screens/conversation_screen.dart';
+import 'package:flutter_chat_v2/screens/ConversationScreen.dart';
 import 'package:flutter_chat_v2/utils/isCurrentUser.dart';
 
 class ChatBubble extends StatefulWidget {
