@@ -83,11 +83,15 @@ class _SettingScreenState extends State<SettingScreen> {
                   ]),
               SizedBox(
                 height: 1,
-                child: Padding(
-                  padding: const EdgeInsets.only(right: 30.0, left: 120),
-                  child: Container(
-                    decoration:
-                        BoxDecoration(color: Colors.grey[800].withOpacity(0.9)),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).secondaryHeaderColor,
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.only(right: 30.0, left: 120),
+                    child: Container(
+                      decoration: BoxDecoration(color: Colors.grey[800]),
+                    ),
                   ),
                 ),
               ),
