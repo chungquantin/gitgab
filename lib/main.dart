@@ -1,13 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_v2/components/common/IconWithBadge.dart';
-import 'package:flutter_chat_v2/constants/language/index.dart';
+import 'package:flutter_chat_v2/language/constants.dart';
+import 'package:flutter_chat_v2/language/index.dart';
+import 'package:flutter_chat_v2/language/localization.dart';
 import 'package:flutter_chat_v2/screens/chat_screen.dart';
 import 'package:flutter_chat_v2/constants/theme/themes.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_chat_v2/language/initialize_i18n.dart'
+    show initializeI18n;
 
-void main() {
+void main() async {
+  Map<String, Map<String, String>> localizedValues = await initializeI18n();
   runApp(MultiProvider(
     providers: [
       ChangeNotifierProvider(
@@ -17,15 +23,27 @@ void main() {
         create: (_) => Language(),
       ),
     ],
-    child: MyApp(),
+    child: MyApp(localizedValues: localizedValues),
   ));
 }
 
 // AppTheme.of(context, listen: true).currentTheme
 class MyApp extends StatelessWidget {
+  final Map<String, Map<String, String>> localizedValues;
+
+  MyApp({this.localizedValues});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+        locale: Locale("en"),
+        localizationsDelegates: [
+          MyLocalizationsDelegate(localizedValues),
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: languages.map((language) => Locale(language, "")),
         debugShowCheckedModeBanner: false,
         title: 'Flutter Chap V2',
         home: MyHomePage(),
@@ -130,7 +148,7 @@ class _MyHomePageState extends State<MyHomePage> {
           badge: "",
         ),
         // ignore: deprecated_member_use
-        title: Text(languageJumbotron["chat-bottom-header"]),
+        title: Text(MyLocalizations.of(context).getLanguage),
       ),
       BottomNavigationBarItem(
           icon: IconWithBadge(

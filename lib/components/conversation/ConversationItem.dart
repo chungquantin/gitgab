@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_v2/components/common/UserStatus.dart';
-import 'package:flutter_chat_v2/constants/language/index.dart';
+import 'package:flutter_chat_v2/language/index.dart';
 import 'package:flutter_chat_v2/constants/mock/data.dart';
 import 'package:flutter_chat_v2/utils/isCurrentUser.dart';
 import 'package:flutter_chat_v2/utils/stringFormatter.dart';

@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_v2/components/chat/ChatBubble.dart';
 import 'package:flutter_chat_v2/components/chat/ChatComposer.dart';
-import 'package:flutter_chat_v2/constants/language/index.dart';
+import 'package:flutter_chat_v2/language/index.dart';
 import 'package:flutter_chat_v2/constants/mock/data.dart';
 
 enum ChatBubblePosition { first, middle, last }

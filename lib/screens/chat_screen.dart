@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_v2/components/conversation/ConversationItem.dart';
-import 'package:flutter_chat_v2/constants/language/index.dart';
+import 'package:flutter_chat_v2/language/index.dart';
 import 'package:flutter_chat_v2/constants/mock/data.dart';
 import 'package:flutter_chat_v2/screens/conversation_screen.dart';
 import 'package:flutter_chat_v2/utils/stringFormatter.dart';

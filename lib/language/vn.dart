@@ -1,4 +1,4 @@
-import 'package:flutter_chat_v2/constants/language/index.dart';
+import 'package:flutter_chat_v2/language/index.dart';
 class VN extends LanguagePack {
   Map<String, String> jumbotron = {
     // Header

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_chat_v2/constants/language/index.dart';
+import 'package:flutter_chat_v2/language/index.dart';
 
 class ChatComposer extends StatelessWidget {
   const ChatComposer({Key key}) : super(key: key);

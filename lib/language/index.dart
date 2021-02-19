@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_chat_v2/constants/language/en.dart';
-import 'package:flutter_chat_v2/constants/language/vn.dart';
+import 'package:flutter_chat_v2/language/en.dart';
+import 'package:flutter_chat_v2/language/vn.dart';
 import 'package:provider/provider.dart';
 
 enum LanguageEnum { VN, EN }
