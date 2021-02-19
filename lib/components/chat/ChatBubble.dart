@@ -6,7 +6,8 @@ import 'package:flutter_chat_v2/utils/isCurrentUser.dart';
 class ChatBubble extends StatefulWidget {
   final Message message;
   final ChatBubblePosition messagePosition;
-  ChatBubble({Key key, @required this.message, @required this.messagePosition}) : super(key: key);
+  ChatBubble({Key key, @required this.message, @required this.messagePosition})
+      : super(key: key);
 
   @override
   _ChatBubbleState createState() => _ChatBubbleState();
@@ -14,24 +15,33 @@ class ChatBubble extends StatefulWidget {
 
 class _ChatBubbleState extends State<ChatBubble> {
   Widget _notMeMessage() => Container(
-        margin: EdgeInsets.only(top: 0, left: 15),
+        margin: EdgeInsets.only(
+            top: widget.messagePosition == ChatBubblePosition.first ? 10 : 0,
+            left: 15),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            widget.messagePosition == ChatBubblePosition.first ? Container(
-              margin: EdgeInsets.only(right: 20),
-              child: CircleAvatar(
-                backgroundImage: NetworkImage(widget.message.sender.imageURL),
-                radius: 20,
-              ),
-            ) : Container(
-              width: 65 ,
-            ),
+            widget.messagePosition == ChatBubblePosition.first
+                ? Container(
+                    margin: EdgeInsets.only(right: 25),
+                    child: CircleAvatar(
+                      backgroundImage:
+                          NetworkImage(widget.message.sender.imageURL),
+                      radius: 20,
+                    ),
+                  )
+                : Container(
+                    width: 65,
+                  ),
             Expanded(
               child: Container(
                 padding: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
-                margin: EdgeInsets.only(top: widget.messagePosition == ChatBubblePosition.first ? 15 : 6, right: 80),
+                margin: EdgeInsets.only(
+                    top: widget.messagePosition == ChatBubblePosition.first
+                        ? 15
+                        : 6,
+                    right: 80),
                 decoration: BoxDecoration(
                     color: Theme.of(context).accentColor,
                     borderRadius: BorderRadius.only(
@@ -41,9 +51,7 @@ class _ChatBubbleState extends State<ChatBubble> {
                         bottomRight: Radius.circular(20))),
                 child: Text(
                   widget.message.text,
-                  style: TextStyle(
-                    color: Colors.white
-                  ),
+                  style: TextStyle(color: Colors.white),
                 ),
               ),
             )
@@ -52,15 +60,22 @@ class _ChatBubbleState extends State<ChatBubble> {
       );
 
   Widget _meMessage() => Container(
-        margin: EdgeInsets.only(top: 10, left: 15),
+        margin: widget.messagePosition == ChatBubblePosition.first
+            ? EdgeInsets.only(top: 10)
+            : EdgeInsets.zero,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Expanded(
               child: Container(
-                padding: EdgeInsets.symmetric(vertical: 15, horizontal: 12),
-                margin: EdgeInsets.only(top: 15, left: 120, right: 15),
+                padding: EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+                margin: EdgeInsets.only(
+                    top: widget.messagePosition == ChatBubblePosition.first
+                        ? 15
+                        : 6,
+                    left: 120,
+                    right: 15),
                 decoration: BoxDecoration(
                     color: Theme.of(context).secondaryHeaderColor,
                     borderRadius: BorderRadius.only(
