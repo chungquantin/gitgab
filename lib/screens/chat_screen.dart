@@ -16,7 +16,7 @@ class ChatScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     dynamic languageJumbotron =
-        Language.of(context).currentLanguagePack.jumbotron;
+        Language.of(context, listen: true).currentLanguagePack.jumbotron;
 
     Widget _getFlexibleSpaceArea() {
       return FlexibleSpaceBar(

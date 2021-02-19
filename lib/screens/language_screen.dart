@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_v2/components/common/ReusableSearchBar.dart';
 import 'package:flutter_chat_v2/constants/language/index.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class LanguageScreen extends StatelessWidget {
   const LanguageScreen({Key key}) : super(key: key);
@@ -9,7 +8,7 @@ class LanguageScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Map<String, String> languageJumbotron =
-        Language.of(context).currentLanguagePack.jumbotron;
+        Language.of(context, listen: true).currentLanguagePack.jumbotron;
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
       appBar: AppBar(
@@ -37,7 +36,12 @@ class LanguageScreen extends StatelessWidget {
                   List<String> headers = Language.of(context).getHeader;
                   List<Widget> flags = Language.of(context).flagIcons;
                   return InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      print(headers[index]);
+                      Language.of(context)
+                          .setLanguage(LanguageEnum.values[index]);
+                      print(Language.of(context).currentLanguagePack);
+                    },
                     child: Container(
                       margin:
                           EdgeInsets.symmetric(horizontal: 20, vertical: 10),

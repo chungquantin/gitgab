@@ -17,7 +17,7 @@ class _SettingScreenState extends State<SettingScreen> {
   @override
   Widget build(BuildContext context) {
     Map<String, String> languageJumbotron =
-        Language.of(context).currentLanguagePack.jumbotron;
+        Language.of(context, listen: true).currentLanguagePack.jumbotron;
     return Scaffold(
         appBar: AppBar(
           elevation: 0.0,
@@ -77,7 +77,9 @@ class _SettingScreenState extends State<SettingScreen> {
                           MaterialPageRoute(
                               builder: (BuildContext context) =>
                                   LanguageScreen())),
-                      child: Text(languageJumbotron["language-VN"],
+                      child: Text(
+                          languageJumbotron[
+                              "language-${Language.of(context).currentLanguagePack.runtimeType.toString()}"],
                           style: Theme.of(context).textTheme.headline3),
                     )
                   ],
