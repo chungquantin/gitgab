@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_chat_v2/constants/mock/data.dart';
+import 'package:flutter_chat_v2/constants/mock/message.dart';
 import 'package:flutter_chat_v2/screens/conversation_screen.dart';
 import 'package:flutter_chat_v2/utils/isCurrentUser.dart';
 
@@ -41,7 +41,9 @@ class _ChatBubbleState extends State<ChatBubble> {
                         bottomRight: Radius.circular(20))),
                 child: Text(
                   widget.message.text,
-                  style: Theme.of(context).textTheme.bodyText2,
+                  style: TextStyle(
+                    color: Colors.white
+                  ),
                 ),
               ),
             )

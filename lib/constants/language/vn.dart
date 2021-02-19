@@ -6,6 +6,7 @@ class VN extends LanguagePack {
     "groups-screen-header": "Nhóm",
     "social-screen-header": "Kết nối",
     "extension-screen-header": "Mở rộng",
+    "setting-screen-header":"Cài đặt",
     // Bottom Navigation Bar
     "chat-bottom-header": "Tin nhắn",
     "groups-bottom-header": "Nhóm",
@@ -28,5 +29,11 @@ class VN extends LanguagePack {
     "hours-ago": "tiếng trước",
     "day-ago": "ngày trước",
     "days-ago": "ngày trước",
+    // Setting
+    "language-setting": "Ngôn ngữ",
+    "theme-setting": "Chế độ tối",
+    // Language
+    "language-VN": "Tiếng Việt",
+    "language-EN": "English"
   };
 }

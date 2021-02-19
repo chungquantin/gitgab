@@ -21,7 +21,6 @@ void main() {
   ));
 }
 
-// AppTheme.of(context, listen: true).currentTheme
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -29,27 +28,11 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Flutter Chap V2',
         home: MyHomePage(),
-        theme: ThemeData(
-            primaryColor: HexColor("#121212"),
-            accentColor: Colors.deepPurple,
-            secondaryHeaderColor: HexColor("#1D1D1D"),
-            bottomNavigationBarTheme: BottomNavigationBarThemeData(
-                backgroundColor: HexColor("#1D1D1D"),
-                selectedItemColor: Colors.white,
-                unselectedItemColor: Colors.grey[700]),
-            textTheme: TextTheme(
-              headline3: TextStyle(color: Colors.grey[100], fontSize: 17),
-              bodyText1: TextStyle(
-                  color: Colors.grey[600],
-                  fontSize: 15,
-                  fontWeight: FontWeight.normal),
-              bodyText2: TextStyle(
-                  color: Colors.white,
-                  fontSize: 15,
-                  fontWeight: FontWeight.normal),
-            )));
+        theme: AppTheme.of(context, listen: true).currentTheme);
   }
 }
+
+// AppTheme.of(context, listen: true).currentTheme
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key}) : super(key: key);

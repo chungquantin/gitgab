@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_v2/components/common/UserStatus.dart';
 import 'package:flutter_chat_v2/constants/language/index.dart';
-import 'package:flutter_chat_v2/constants/mock/data.dart';
+import 'package:flutter_chat_v2/constants/mock/conversation.dart';
+import 'package:flutter_chat_v2/constants/mock/message.dart';
+import 'package:flutter_chat_v2/constants/mock/user.dart';
 import 'package:flutter_chat_v2/utils/isCurrentUser.dart';
 import 'package:flutter_chat_v2/utils/stringFormatter.dart';
 
@@ -12,6 +14,7 @@ class ConversationItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    User to = this.conversation.participants.first;
     dynamic languageJumbotron =
         Language.of(context).currentLanguagePack.jumbotron;
     Message lastMessage =
@@ -29,12 +32,14 @@ class ConversationItem extends StatelessWidget {
               Container(
                 margin: EdgeInsets.only(right: 15),
                 child: CircleAvatar(
-                  backgroundImage: NetworkImage(this.conversation.to.imageURL),
+                  backgroundImage: NetworkImage(to.imageURL),
                   radius: 30,
                 ),
               ),
               UserStatusComp(
-                status: this.conversation.to.status,
+                status: isCurrentUser(to)
+                    ? UserStatus.none
+                    : to.status,
               )
             ],
           ),
@@ -47,7 +52,7 @@ class ConversationItem extends StatelessWidget {
                 Expanded(
                     child: Container(
                   child: Text(
-                    this.conversation.to.name,
+                    to.name,
                     style: Theme.of(context).textTheme.headline3,
                   ),
                 )),
@@ -67,7 +72,8 @@ class ConversationItem extends StatelessWidget {
             ),
           ),
           Spacer(),
-          this.conversation.messages.any((msg) => msg.unread == true)
+          this.conversation.messages.any((msg) => msg.unread == true) &&
+                  !isCurrentUser(to)
               ? Container(
                   padding: EdgeInsets.symmetric(vertical: 2, horizontal: 10),
                   decoration: BoxDecoration(

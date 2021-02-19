@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_chat_v2/components/chat/ChatBubble.dart';
 import 'package:flutter_chat_v2/components/chat/ChatComposer.dart';
 import 'package:flutter_chat_v2/constants/language/index.dart';
-import 'package:flutter_chat_v2/constants/mock/data.dart';
+import 'package:flutter_chat_v2/constants/mock/conversation.dart';
+import 'package:flutter_chat_v2/constants/mock/message.dart';
+import 'package:flutter_chat_v2/constants/mock/user.dart';
 
 enum ChatBubblePosition { first, middle, last }
 
@@ -30,14 +32,15 @@ class _ConversationScreenState extends State<ConversationScreen> {
               Container(
                 margin: EdgeInsets.only(right: 15),
                 child: CircleAvatar(
-                  backgroundImage:
-                      NetworkImage(widget.conversation.to.imageURL),
+                  backgroundImage: NetworkImage(widget.conversation
+                      .getParticipantsExceptCurrentUser[0].imageURL),
                 ),
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(widget.conversation.to.name),
+                  Text(widget
+                      .conversation.getParticipantsExceptCurrentUser[0].name),
                   Row(
                     children: [
                       Text(
@@ -100,39 +103,39 @@ class _ConversationScreenState extends State<ConversationScreen> {
         body: Container(
           child: Column(
             children: [
-                  Expanded(
-                    child: ListView.builder(
-                        itemBuilder: (BuildContext context, int index) {
-                          ChatBubblePosition getPosition() {
-                            ChatBubblePosition pos;
-                            if (index < 1) {
-                              pos = ChatBubblePosition.first;
-                            } else if (index == conversationMessages.length - 1) {
-                              pos = ChatBubblePosition.last;
-                            } else {
-                              User prevSender =
-                                  conversationMessages[index - 1].sender;
-                              User curSender = conversationMessages[index].sender;
-                              User nextSender =
-                                  conversationMessages[index + 1].sender;
-                              if (curSender.id != prevSender.id) {
-                                pos = ChatBubblePosition.first;
-                              } else if (curSender.id == prevSender.id &&
-                                  curSender.id == nextSender.id) {
-                                pos = ChatBubblePosition.middle;
-                              } else if (curSender.id != nextSender.id) {
-                                pos = ChatBubblePosition.last;
-                              }
-                            }
-                            return pos;
+              Expanded(
+                child: ListView.builder(
+                    itemBuilder: (BuildContext context, int index) {
+                      ChatBubblePosition getPosition() {
+                        ChatBubblePosition pos;
+                        if (index < 1) {
+                          pos = ChatBubblePosition.first;
+                        } else if (index == conversationMessages.length - 1) {
+                          pos = ChatBubblePosition.last;
+                        } else {
+                          User prevSender =
+                              conversationMessages[index - 1].sender;
+                          User curSender = conversationMessages[index].sender;
+                          User nextSender =
+                              conversationMessages[index + 1].sender;
+                          if (curSender.id != prevSender.id) {
+                            pos = ChatBubblePosition.first;
+                          } else if (curSender.id == prevSender.id &&
+                              curSender.id == nextSender.id) {
+                            pos = ChatBubblePosition.middle;
+                          } else if (curSender.id != nextSender.id) {
+                            pos = ChatBubblePosition.last;
                           }
+                        }
+                        return pos;
+                      }
 
-                          return ChatBubble(
-                              message: conversationMessages[index],
-                              messagePosition: getPosition());
-                        },
-                        itemCount: conversationMessages.length),
-                  ),
+                      return ChatBubble(
+                          message: conversationMessages[index],
+                          messagePosition: getPosition());
+                    },
+                    itemCount: conversationMessages.length),
+              ),
               ChatComposer()
             ],
           ),

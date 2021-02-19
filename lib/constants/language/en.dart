@@ -7,6 +7,7 @@ class EN extends LanguagePack {
     "groups-screen-header": "Groups",
     "social-screen-header": "Social",
     "extension-screen-header": "Extension",
+    "setting-screen-header": "Settings",
     // Bottom Navigation Bar
     "chat-bottom-header": "Chat",
     "groups-bottom-header": "Group",
@@ -29,5 +30,11 @@ class EN extends LanguagePack {
     "hours-ago": "hours ago",
     "day-ago": "day ago",
     "days-ago": "days ago",
+    // Setting
+    "language-setting": "Language",
+    "theme-setting": "Dark Mode",
+    // Language
+    "language-VN": "Tiếng Việt",
+    "language-EN": "English"
   };
 }
