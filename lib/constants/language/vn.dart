@@ -32,7 +32,8 @@ class VN extends LanguagePack {
     "days-ago": "ngày trước",
     // Setting
     "language-setting": "Ngôn ngữ",
-    "theme-setting": "Chế độ tối",
+    "dark-mode-setting": "Chế độ tối",
+    "theme-setting": "Theme",
     // Language
     "language-VN": "Tiếng Việt",
     "language-EN": "English"

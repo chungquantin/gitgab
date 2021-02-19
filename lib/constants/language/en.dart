@@ -15,7 +15,7 @@ class EN extends LanguagePack {
     "extension-bottom-header": "Extension",
     // Button / Input
     "search-button-placeholder": "Search",
-    "language-search-button-placeholder":"Search for language...",
+    "language-search-button-placeholder":"Search for language",
     "chat-composer-placeholder": "Send a message...",
     // Conversation
     "you": "You",
@@ -33,7 +33,8 @@ class EN extends LanguagePack {
     "days-ago": "days ago",
     // Setting
     "language-setting": "Language",
-    "theme-setting": "Dark Mode",
+    "dark-mode-setting": "Dark Mode",
+    "theme-setting": "Theme",
     // Language
     "language-VN": "Tiếng Việt",
     "language-EN": "English"
