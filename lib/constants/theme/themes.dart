@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_chat_v2/constants/mock/data.dart';
 import 'package:flutter_chat_v2/constants/theme/darkTheme.dart';
 import 'package:flutter_chat_v2/constants/theme/lightTheme.dart';
 import 'package:provider/provider.dart';
@@ -14,7 +15,7 @@ class AppTheme extends ChangeNotifier {
   static AppTheme of(BuildContext context, {bool listen = false}) =>
       Provider.of<AppTheme>(context, listen: listen);
 
-  AppThemeKeys _themeKey = AppThemeKeys.dark;
+  AppThemeKeys _themeKey = UserMockData().currentUserSetting.theme;
 
   ThemeData get currentTheme => _themes[_themeKey];
   AppThemeKeys get currentThemeKey => _themeKey;

@@ -13,7 +13,7 @@ class SettingScreen extends StatefulWidget {
 }
 
 class _SettingScreenState extends State<SettingScreen> {
-  bool isSwitched = false;
+  bool isSwitched = AppTheme().currentThemeKey == AppThemeKeys.dark;
   @override
   Widget build(BuildContext context) {
     Map<String, String> languageJumbotron =

@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_v2/constants/language/en.dart';
 import 'package:flutter_chat_v2/constants/language/vn.dart';
+import 'package:flutter_chat_v2/constants/mock/data.dart';
 import 'package:flutter_chat_v2/utils/assetUtil.dart';
 import 'package:provider/provider.dart';
 
 enum LanguageEnum { VN, EN }
 class Language extends ChangeNotifier {
-  LanguageEnum language = LanguageEnum.VN;
+  LanguageEnum language = UserMockData().currentUserSetting.language;
   List<String> headers = ["language-VN", "language-EN"];
   List<Widget> flagIcons = [
     flagImage("vn"),

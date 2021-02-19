@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_v2/components/common/IconWithBadge.dart';
 import 'package:flutter_chat_v2/constants/language/index.dart';
+import 'package:flutter_chat_v2/constants/mock/data.dart';
 import 'package:flutter_chat_v2/screens/chat_screen.dart';
 import 'package:flutter_chat_v2/constants/theme/themes.dart';
 import 'package:provider/provider.dart';
