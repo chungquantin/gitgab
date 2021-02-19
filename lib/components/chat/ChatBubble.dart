@@ -23,7 +23,7 @@ class _ChatBubbleState extends State<ChatBubble> {
               margin: EdgeInsets.only(right: 20),
               child: CircleAvatar(
                 backgroundImage: NetworkImage(widget.message.sender.imageURL),
-                radius: 23,
+                radius: 20,
               ),
             ) : Container(
               width: 65 ,
