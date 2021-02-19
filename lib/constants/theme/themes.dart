@@ -1,45 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_chat_v2/constants/theme/darkTheme.dart';
+import 'package:flutter_chat_v2/constants/theme/lightTheme.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:provider/provider.dart';
 
 enum AppThemeKeys { light, dark }
 
 final Map<AppThemeKeys, ThemeData> _themes = {
-  AppThemeKeys.dark: ThemeData(
-      primaryColor: HexColor("#121212"),
-      accentColor: Colors.deepPurple,
-      secondaryHeaderColor: HexColor("#1D1D1D"),
-      bottomNavigationBarTheme: BottomNavigationBarThemeData(
-          backgroundColor: HexColor("#1D1D1D"),
-          selectedItemColor: Colors.white,
-          unselectedItemColor: Colors.grey[700]),
-      textTheme: TextTheme(
-        headline3: TextStyle(color: Colors.grey[100], fontSize: 17),
-        bodyText1: TextStyle(
-            color: Colors.grey[600],
-            fontSize: 15,
-            fontWeight: FontWeight.normal),
-        bodyText2: TextStyle(
-            color: Colors.white, fontSize: 15, fontWeight: FontWeight.normal),
-      )),
-  AppThemeKeys.light: ThemeData(
-      primaryColor: Colors.white,
-      accentColor: Colors.deepPurple,
-      secondaryHeaderColor: Colors.grey[100],
-      bottomNavigationBarTheme: BottomNavigationBarThemeData(
-          backgroundColor: Colors.white,
-          selectedItemColor: Colors.deepPurple,
-          unselectedItemColor: Colors.grey[500]),
-      textTheme: TextTheme(
-        headline3: TextStyle(
-            color: Colors.black87, fontWeight: FontWeight.w400, fontSize: 17),
-        bodyText1: TextStyle(
-            color: Colors.grey[500],
-            fontSize: 15,
-            fontWeight: FontWeight.normal),
-        bodyText2: TextStyle(
-            color: Colors.black, fontSize: 15, fontWeight: FontWeight.normal),
-      )),
+  AppThemeKeys.dark: darkTheme,
+  AppThemeKeys.light: lightTheme,
 };
 
 class AppTheme extends ChangeNotifier {

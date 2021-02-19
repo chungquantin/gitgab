@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_chat_v2/constants/language/index.dart';
 import 'package:flutter_chat_v2/constants/mock/data.dart';
 import 'package:flutter_chat_v2/constants/theme/themes.dart';
+import 'package:flutter_chat_v2/screens/language_screen.dart';
 
 class SettingScreen extends StatefulWidget {
   SettingScreen({Key key}) : super(key: key);
@@ -18,6 +19,7 @@ class _SettingScreenState extends State<SettingScreen> {
         Language.of(context).currentLanguagePack.jumbotron;
     return Scaffold(
         appBar: AppBar(
+          elevation: 0.0,
           centerTitle: true,
           title: Text(languageJumbotron["setting-screen-header"]),
           leading: IconButton(
@@ -52,7 +54,7 @@ class _SettingScreenState extends State<SettingScreen> {
                     IconButton(
                         icon: Icon(
                           Icons.edit,
-                          color: Colors.white,
+                          color: Theme.of(context).iconTheme.color,
                           size: 20,
                         ),
                         onPressed: () {}),
@@ -68,8 +70,15 @@ class _SettingScreenState extends State<SettingScreen> {
                       languageJumbotron["language-setting"],
                       style: Theme.of(context).textTheme.headline3,
                     ),
-                    Text(languageJumbotron["language-VN"],
-                        style: Theme.of(context).textTheme.headline3)
+                    GestureDetector(
+                      onTap: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (BuildContext context) =>
+                                  LanguageScreen())),
+                      child: Text(languageJumbotron["language-VN"],
+                          style: Theme.of(context).textTheme.headline3),
+                    )
                   ],
                 ),
                 SizedBox(height: 15),
