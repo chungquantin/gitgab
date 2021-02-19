@@ -3,6 +3,7 @@ import 'package:flutter_chat_v2/constants/language/index.dart';
 import 'package:flutter_chat_v2/constants/mock/data.dart';
 import 'package:flutter_chat_v2/constants/theme/themes.dart';
 import 'package:flutter_chat_v2/screens/language_screen.dart';
+import 'package:flutter_chat_v2/utils/stringFormatter.dart';
 
 class SettingScreen extends StatefulWidget {
   SettingScreen({Key key}) : super(key: key);
@@ -21,7 +22,7 @@ class _SettingScreenState extends State<SettingScreen> {
         appBar: AppBar(
           elevation: 0.0,
           centerTitle: true,
-          title: Text(languageJumbotron["setting-screen-header"]),
+          title: Text(titleCase(languageJumbotron["setting-screen-header"])),
           leading: IconButton(
               icon: Icon(Icons.arrow_back_ios),
               onPressed: () {

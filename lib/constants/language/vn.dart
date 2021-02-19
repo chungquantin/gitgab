@@ -14,6 +14,7 @@ class VN extends LanguagePack {
     "extension-bottom-header": "Mở rộng",
     // Button / Input
     "search-button-placeholder": "Tìm kiếm",
+    "language-search-button-placeholder":"Tìm kiếm ngôn ngữ",
     "chat-composer-placeholder": "Nhập vào tin nhắn...",
     // Conversation
     "you": "Bạn",

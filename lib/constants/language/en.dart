@@ -15,6 +15,7 @@ class EN extends LanguagePack {
     "extension-bottom-header": "Extension",
     // Button / Input
     "search-button-placeholder": "Search",
+    "language-search-button-placeholder":"Search for language...",
     "chat-composer-placeholder": "Send a message...",
     // Conversation
     "you": "You",

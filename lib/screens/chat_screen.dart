@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_chat_v2/components/common/ReusableSearchBar.dart';
 import 'package:flutter_chat_v2/components/conversation/ConversationItem.dart';
 import 'package:flutter_chat_v2/components/conversation/ConversationItemGroup.dart';
 import 'package:flutter_chat_v2/constants/language/index.dart';
@@ -18,41 +19,6 @@ class ChatScreen extends StatelessWidget {
         Language.of(context).currentLanguagePack.jumbotron;
 
     Widget _getFlexibleSpaceArea() {
-      Widget _getSearchBar() {
-        return Container(
-          margin: EdgeInsets.only(top: 60, right: 20, left: 20),
-          decoration: BoxDecoration(
-              color: Theme.of(context).bottomNavigationBarTheme.backgroundColor,
-              borderRadius: BorderRadius.circular(50)),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              IconButton(
-                icon: Icon(
-                  Icons.search,
-                  color: Colors.grey,
-                ),
-                onPressed: () {},
-                iconSize: 25,
-              ),
-              Expanded(
-                child: TextField(
-                    textInputAction: TextInputAction.search,
-                    onChanged: (String value) {
-                      print("value");
-                    },
-                    style: TextStyle(color: Colors.white),
-                    cursorColor: Colors.white,
-                    decoration: InputDecoration.collapsed(
-                        hintText:
-                            languageJumbotron["search-button-placeholder"],
-                        hintStyle: TextStyle(color: Colors.grey))),
-              ),
-            ],
-          ),
-        );
-      }
-
       return FlexibleSpaceBar(
         centerTitle: true,
         background: SafeArea(
@@ -60,7 +26,11 @@ class ChatScreen extends StatelessWidget {
                 alignment: Alignment.center,
                 decoration:
                     BoxDecoration(color: Theme.of(context).primaryColor),
-                child: _getSearchBar())),
+                child: Container(
+                    margin: EdgeInsets.only(top: 60, right: 20, left: 20),
+                    child: ReusableSearchBar(onChangeEvent: (value) {
+                      print(value);
+                    }, placeholder: languageJumbotron["search-button-placeholder"])))),
       );
     }
 
