@@ -66,9 +66,6 @@ class _SettingScreenState extends State<SettingScreen> {
               SizedBox(
                 height: 20,
               ),
-              Row(children: [
-                Text("Github", style: Theme.of(context).textTheme.headline3)
-              ]),
               SettingItem(
                   onTapEvent: () => Navigator.push(context,
                       MaterialPageRoute(builder: (_) => LanguageScreen())),

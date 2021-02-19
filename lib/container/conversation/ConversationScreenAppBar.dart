@@ -9,7 +9,7 @@ class ConversationScreenAppBar extends StatelessWidget implements PreferredSizeW
   const ConversationScreenAppBar({Key key, @required this.conversation}) : super(key: key);
 
   @override
-  Size get preferredSize => const Size.fromHeight(100);
+  Size get preferredSize => const Size.fromHeight(50);
 
   @override
   Widget build(BuildContext context) {
