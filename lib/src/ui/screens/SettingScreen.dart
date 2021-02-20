@@ -21,13 +21,13 @@ class _SettingScreenState extends State<SettingScreen> {
 
   @override
   Widget build(BuildContext context) {
-    Map<String, String> languageJumbotron =
-        Language.of(context, listen: true).currentLanguagePack.jumbotron;
+    LanguagePack language =
+        Language.of(context, listen: true).currentLanguagePack;
     return Scaffold(
         appBar: AppBar(
           elevation: 0.0,
           centerTitle: true,
-          title: Text(titleCase(languageJumbotron["setting-screen-header"])),
+          title: Text(titleCase(language.jumbotron["setting-screen-header"])),
           leading: IconButton(
               icon: Icon(Icons.arrow_back_ios),
               onPressed: () {
@@ -68,18 +68,18 @@ class _SettingScreenState extends State<SettingScreen> {
               ),
               SettingItem(
                   onTapEvent: () => Navigator.push(context,
-                      MaterialPageRoute(builder: (_) => LanguageScreen())),
+                      MaterialPageRoute(builder: (_) => LanguageScreen(), fullscreenDialog: true)),
                   leftChildren: [
                     FaIcon(FontAwesomeIcons.language, size: 17),
                     SizedBox(width: 15),
                     Text(
-                      languageJumbotron["language-setting"],
+                      language.jumbotron["language-setting"],
                       style: Theme.of(context).textTheme.headline3,
                     ),
                   ],
                   rightChildren: [
                     Text(
-                      languageJumbotron[
+                      language.language[
                           "language-${Language.of(context).currentLanguagePack.runtimeType.toString()}"],
                     )
                   ]),
@@ -91,7 +91,7 @@ class _SettingScreenState extends State<SettingScreen> {
                 ),
                 SizedBox(width: 15),
                 Text(
-                  languageJumbotron["dark-mode-setting"],
+                  language.jumbotron["dark-mode-setting"],
                   style: Theme.of(context).textTheme.headline3,
                 ),
               ], rightChildren: [
@@ -104,8 +104,8 @@ class _SettingScreenState extends State<SettingScreen> {
                       print(AppTheme.of(context).currentThemeKey);
                     });
                   },
-                  activeTrackColor: Colors.green[400],
-                  activeColor: Colors.green,
+                  activeTrackColor: Theme.of(context).accentColor.withOpacity(0.5),
+                  activeColor: Theme.of(context).accentColor,
                   inactiveTrackColor: Colors.grey,
                 ),
               ]),
@@ -123,7 +123,7 @@ class _SettingScreenState extends State<SettingScreen> {
                     ),
                     SizedBox(width: 15),
                     Text(
-                      languageJumbotron["theme-setting"],
+                      language.jumbotron["theme-setting"],
                       style: Theme.of(context).textTheme.headline3,
                     ),
                   ],

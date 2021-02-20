@@ -37,8 +37,10 @@ class VN extends LanguagePack {
     "language-setting": "Ngôn ngữ",
     "dark-mode-setting": "Chế độ tối",
     "theme-setting": "Theme",
-    // Language
-    "language-VN": "Tiếng Việt",
-    "language-EN": "English"
+  };
+
+  Map<String, String> local = {
+    "VN": "Tiếng Việt",
+    "EN": "English"
   };
 }

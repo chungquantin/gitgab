@@ -15,7 +15,7 @@ class EN extends LanguagePack {
     "extension-bottom-header": "Extension",
     // Button / Input
     "search-button-placeholder": "Search",
-    "language-search-button-placeholder":"Search for language",
+    "language-search-button-placeholder": "Search for language",
     "chat-composer-placeholder": "Send a message...",
     // Conversation
     "you": "You",
@@ -25,8 +25,8 @@ class EN extends LanguagePack {
     "status-busy": "Busy",
     "status-none": "Unavailable",
     "status-silence": "No bother",
-    "group-member":"Contributor",
-    "group-members":"Contributors",
+    "group-member": "Contributor",
+    "group-members": "Contributors",
     // Time
     "minutes-ago": "minutes ago",
     "minute-ago": "minute ago",
@@ -38,8 +38,10 @@ class EN extends LanguagePack {
     "language-setting": "Language",
     "dark-mode-setting": "Dark Mode",
     "theme-setting": "Theme",
-    // Language
-    "language-VN": "Tiếng Việt",
-    "language-EN": "English"
+  };
+
+  Map<String, String> local = {
+    "VN": "Vietnamese",
+    "EN": "English"
   };
 }

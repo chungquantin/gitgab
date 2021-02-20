@@ -1,6 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_v2/src/ui/components/common/ReusableSearchBar.dart';
 import 'package:flutter_chat_v2/constants/language/index.dart';
+import 'package:flutter_chat_v2/src/ui/components/setting/SettingSeparator.dart';
 
 class LanguageScreen extends StatelessWidget {
   const LanguageScreen({Key key}) : super(key: key);
@@ -14,10 +16,8 @@ class LanguageScreen extends StatelessWidget {
       appBar: AppBar(
         elevation: 0.0,
         leading: IconButton(
-            icon: Icon(Icons.arrow_back_ios),
-            onPressed: () => Navigator.pop(context)),
+            icon: Icon(Icons.close), onPressed: () => Navigator.pop(context)),
         title: Text(languageJumbotron["language-setting"]),
-        actions: [IconButton(icon: Icon(Icons.search), onPressed: () {})],
       ),
       body: Column(
         children: [
@@ -34,31 +34,48 @@ class LanguageScreen extends StatelessWidget {
             child: ListView.builder(
                 itemBuilder: (BuildContext context, int index) {
                   List<String> headers = Language.of(context).getHeader;
-                  List<Widget> flags = Language.of(context).flagIcons;
                   return InkWell(
+                    splashColor: Colors.transparent,
                     onTap: () {
-                      print(headers[index]);
                       Language.of(context)
                           .setLanguage(LanguageEnum.values[index]);
-                      print(Language.of(context).currentLanguagePack);
                     },
-                    child: Container(
-                      margin:
-                          EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(Language.of(context)
-                              .currentLanguagePack
-                              .jumbotron[headers[index]]),
-                          Text(" - "),
-                          Text(LanguageEnum.values[index]
-                              .toString()
-                              .replaceAll("LanguageEnum.", "")),
-                          Spacer(),
-                          flags[index]
-                        ],
-                      ),
+                    child: Column(
+                      children: [
+                        Container(
+                          margin: EdgeInsets.symmetric(
+                              horizontal: 20, vertical: 10),
+                          child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      Language.of(context)
+                                          .currentLanguagePack
+                                          .language[headers[index]],
+                                      style:
+                                          Theme.of(context).textTheme.bodyText2,
+                                    ),
+                                    Text("Vietnamese",
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .bodyText1),
+                                  ],
+                                ),
+                                Spacer(),
+                                Text(LanguageEnum.values[index]
+                                    .toString()
+                                    .replaceAll("LanguageEnum.", "")),
+                              ]),
+                        ),
+                        index != LanguageEnum.values.length - 1
+                            ? Container(
+                                margin: EdgeInsets.symmetric(vertical: 5),
+                                child: SettingSeparator())
+                            : Container()
+                      ],
                     ),
                   );
                 },

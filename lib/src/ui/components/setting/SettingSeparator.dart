@@ -12,16 +12,13 @@ class SettingSeparator extends StatelessWidget {
         decoration: BoxDecoration(
           color: Theme.of(context).secondaryHeaderColor,
         ),
-        child: Padding(
-          padding: const EdgeInsets.only(right: 30.0, left: 30),
-          child: Container(
+        child:  Container(
             decoration: BoxDecoration(
                 color: AppTheme.of(context).currentThemeKey == AppThemeKeys.dark
                     ? Colors.grey[800].withOpacity(0.4)
                     : Colors.grey[300]),
           ),
         ),
-      ),
     );
   }
 }

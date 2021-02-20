@@ -6,13 +6,11 @@ import 'package:flutter_chat_v2/utils/assetUtil.dart';
 import 'package:provider/provider.dart';
 
 enum LanguageEnum { VN, EN }
+
 class Language extends ChangeNotifier {
   LanguageEnum language = UserMockData().currentUserSetting.language;
   List<String> headers = ["language-VN", "language-EN"];
-  List<Widget> flagIcons = [
-    flagImage("vn"),
-    flagImage("en")
-  ];
+  List<Widget> flagIcons = [flagImage("vn"), flagImage("en")];
 
   Language();
 
@@ -42,4 +40,9 @@ class Language extends ChangeNotifier {
 
 class LanguagePack {
   Map<String, String> jumbotron;
+  Map<String, String> local;
+  Map<String, String> language = {
+    "language-VN": "Tiếng Việt",
+    "language-EN": "English"
+  };
 }
