@@ -4,6 +4,9 @@ import 'package:flutter_chat_v2/src/ui/components/common/IconWithBadge.dart';
 import 'package:flutter_chat_v2/constants/language/index.dart';
 import 'package:flutter_chat_v2/src/ui/screens/ChatScreen.dart';
 import 'package:flutter_chat_v2/src/theme/themes.dart';
+import 'package:flutter_chat_v2/src/ui/screens/LanguageScreen.dart';
+import 'package:flutter_chat_v2/src/ui/screens/SettingScreen.dart';
+import 'package:flutter_chat_v2/src/ui/screens/ThemeSettingScreen.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -26,7 +29,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'GitGab',
-        home: MyHomePage(),
+        initialRoute: "/",
+        routes: {
+          "/": (_) => MyHomePage(),
+          "/setting": (_) => SettingScreen(),
+          "/setting/language": (_) => LanguageScreen(),
+          "/setting/theme": (_) => ThemeSettingScreen()
+        },
         theme: AppTheme.of(context, listen: true).currentTheme);
   }
 }

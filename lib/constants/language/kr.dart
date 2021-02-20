@@ -1,5 +1,5 @@
 import 'package:flutter_chat_v2/constants/language/index.dart';
-class VN extends LanguagePack {
+class KR extends LanguagePack {
   Map<String, String> jumbotron = {
     // Header
     "chat-screen-header": "Tin nhắn",

@@ -4,7 +4,6 @@ import 'package:flutter_chat_v2/src/ui/components/setting/SettingSeparator.dart'
 import 'package:flutter_chat_v2/constants/language/index.dart';
 import 'package:flutter_chat_v2/constants/mock/data.dart';
 import 'package:flutter_chat_v2/src/theme/themes.dart';
-import 'package:flutter_chat_v2/src/ui/screens/LanguageScreen.dart';
 import 'package:flutter_chat_v2/src/ui/screens/ThemeSettingScreen.dart';
 import 'package:flutter_chat_v2/utils/stringFormatter.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -21,18 +20,16 @@ class _SettingScreenState extends State<SettingScreen> {
 
   @override
   Widget build(BuildContext context) {
-    LanguagePack language =
-        Language.of(context, listen: true).currentLanguagePack;
+    LanguagePack LANG = Language.of(context, listen: true).currentLanguagePack;
     return Scaffold(
         appBar: AppBar(
           elevation: 0.0,
           centerTitle: true,
-          title: Text(titleCase(language.jumbotron["setting-screen-header"])),
+          title: Text(titleCase(LANG.jumbotron["setting-screen-header"])),
           leading: IconButton(
               icon: Icon(Icons.arrow_back_ios),
-              onPressed: () {
-                Navigator.pop(context);
-              }),
+              onPressed: () => Navigator.pop(context)
+              ),
         ),
         backgroundColor: Theme.of(context).primaryColor,
         body: Center(
@@ -67,20 +64,19 @@ class _SettingScreenState extends State<SettingScreen> {
                 height: 20,
               ),
               SettingItem(
-                  onTapEvent: () => Navigator.push(context,
-                      MaterialPageRoute(builder: (_) => LanguageScreen(), fullscreenDialog: true)),
+                  onTapEvent: () =>
+                      Navigator.pushNamed(context, "/setting/language"),
                   leftChildren: [
                     FaIcon(FontAwesomeIcons.language, size: 17),
                     SizedBox(width: 15),
                     Text(
-                      language.jumbotron["language-setting"],
+                      LANG.jumbotron["language-setting"],
                       style: Theme.of(context).textTheme.headline3,
                     ),
                   ],
                   rightChildren: [
                     Text(
-                      language.language[
-                          "language-${Language.of(context).currentLanguagePack.runtimeType.toString()}"],
+                      LANG.language["language-${LANG.runtimeType.toString()}"],
                     )
                   ]),
               SettingSeparator(),
@@ -91,7 +87,7 @@ class _SettingScreenState extends State<SettingScreen> {
                 ),
                 SizedBox(width: 15),
                 Text(
-                  language.jumbotron["dark-mode-setting"],
+                  LANG.jumbotron["dark-mode-setting"],
                   style: Theme.of(context).textTheme.headline3,
                 ),
               ], rightChildren: [
@@ -104,15 +100,15 @@ class _SettingScreenState extends State<SettingScreen> {
                       print(AppTheme.of(context).currentThemeKey);
                     });
                   },
-                  activeTrackColor: Theme.of(context).accentColor.withOpacity(0.5),
+                  activeTrackColor:
+                      Theme.of(context).accentColor.withOpacity(0.5),
                   activeColor: Theme.of(context).accentColor,
                   inactiveTrackColor: Colors.grey,
                 ),
               ]),
               SettingSeparator(),
               SettingItem(
-                  onTapEvent: () => Navigator.push(context,
-                      MaterialPageRoute(builder: (_) => ThemeSettingScreen())),
+                  onTapEvent: () => Navigator.pushNamed(context, "/setting/theme"),
                   leftChildren: [
                     Container(
                       height: 20,
@@ -123,7 +119,7 @@ class _SettingScreenState extends State<SettingScreen> {
                     ),
                     SizedBox(width: 15),
                     Text(
-                      language.jumbotron["theme-setting"],
+                      LANG.jumbotron["theme-setting"],
                       style: Theme.of(context).textTheme.headline3,
                     ),
                   ],
@@ -133,5 +129,3 @@ class _SettingScreenState extends State<SettingScreen> {
         ));
   }
 }
-
-

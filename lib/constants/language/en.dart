@@ -42,6 +42,7 @@ class EN extends LanguagePack {
 
   Map<String, String> local = {
     "VN": "Vietnamese",
-    "EN": "English"
+    "EN": "English",
+    "KR": "Korean"
   };
 }
