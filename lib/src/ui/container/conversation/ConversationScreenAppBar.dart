@@ -35,31 +35,34 @@ class ConversationScreenAppBar extends StatelessWidget implements PreferredSizeW
     return AppBar(
       title: InkWell(
         onTap: () {},
-        child: Row(
-          children: [
-            Container(
-              margin: EdgeInsets.only(right: 15),
-              child: CircleAvatar(
-                backgroundImage: NetworkImage(
-                    conversation.participants.first.imageURL),
+        child: Container(
+          margin: EdgeInsets.only(top: 10),
+          child: Row(
+            children: [
+              Container(
+                margin: EdgeInsets.only(right: 15),
+                child: CircleAvatar(
+                  backgroundImage: NetworkImage(
+                      conversation.participants.first.imageURL),
+                ),
               ),
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(conversation.participants.first.name),
-                Row(
-                  children: [
-                    Text(
-                      languageJumbotron["status-$formattedStatus"],
-                      style: TextStyle(fontSize: 14, color: Colors.grey),
-                    ),
-                    _getStatusUI(conversation.participants.first.status)
-                  ],
-                )
-              ],
-            )
-          ],
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(conversation.participants.first.name),
+                  Row(
+                    children: [
+                      Text(
+                        languageJumbotron["status-$formattedStatus"],
+                        style: TextStyle(fontSize: 14, color: Colors.grey),
+                      ),
+                      _getStatusUI(conversation.participants.first.status)
+                    ],
+                  )
+                ],
+              )
+            ],
+          ),
         ),
       ),
       centerTitle: false,
