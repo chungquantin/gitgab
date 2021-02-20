@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_v2/src/ui/components/conversation/ConversationItem.dart';
-import 'package:flutter_chat_v2/src/ui/components/conversation/ConversationItemGroup.dart';
+import 'package:flutter_chat_v2/src/ui/components/conversation/GroupConversationItem.dart';
 import 'package:flutter_chat_v2/constants/mock/conversation.dart';
 import 'package:flutter_chat_v2/constants/mock/data.dart';
 import 'package:flutter_chat_v2/src/ui/container/chat/ChatScreenSliverAppBar.dart';
@@ -27,7 +27,7 @@ class ChatScreen extends StatelessWidget {
               conversation: currentConversation.getFilterConversation,
             );
           } else {
-            conversationComponent = ConversationItemGroup(
+            conversationComponent = GroupConversationItem(
               conversation: currentConversation
             );
           }

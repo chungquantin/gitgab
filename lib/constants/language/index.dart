@@ -47,6 +47,6 @@ class LanguagePack {
   Map<String, String> language = {
     "language-VN": "Tiếng Việt",
     "language-EN": "English",
-    "language-KR": "Korean"
+    "language-KR": "한국어"
   };
 }

@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_chat_v2/constants/language/index.dart';
 import 'package:flutter_chat_v2/constants/mock/conversation.dart';
 
-class GroupConversationAppBar extends StatelessWidget implements PreferredSizeWidget {
+class GroupConversaionAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Conversation conversation;
-  const GroupConversationAppBar({Key key, @required this.conversation}) : super(key: key);
+  const GroupConversaionAppBar({Key key, @required this.conversation}) : super(key: key);
 
   @override
   Size get preferredSize => const Size.fromHeight(50);
@@ -34,8 +34,8 @@ class GroupConversationAppBar extends StatelessWidget implements PreferredSizeWi
                     Text(
                       conversation.participants.length.toString() +
                           (conversation.participants.length > 1
-                              ? languageJumbotron["group-members"]
-                              : languageJumbotron["group-member"]),
+                              ? languageJumbotron["group-contributors"]
+                              : languageJumbotron["group-contributor"]),
                       style: TextStyle(fontSize: 14, color: Colors.grey),
                     ),
                   ],

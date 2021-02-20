@@ -4,9 +4,11 @@ import 'package:flutter_chat_v2/src/ui/components/common/UserStatus.dart';
 import 'package:flutter_chat_v2/constants/language/index.dart';
 import 'package:flutter_chat_v2/constants/mock/conversation.dart';
 
-class ConversationScreenAppBar extends StatelessWidget implements PreferredSizeWidget{
+class ConversationScreenAppBar extends StatelessWidget
+    implements PreferredSizeWidget {
   final Conversation conversation;
-  const ConversationScreenAppBar({Key key, @required this.conversation}) : super(key: key);
+  const ConversationScreenAppBar({Key key, @required this.conversation})
+      : super(key: key);
 
   @override
   Size get preferredSize => const Size.fromHeight(50);
@@ -42,8 +44,8 @@ class ConversationScreenAppBar extends StatelessWidget implements PreferredSizeW
               Container(
                 margin: EdgeInsets.only(right: 15),
                 child: CircleAvatar(
-                  backgroundImage: NetworkImage(
-                      conversation.participants.first.imageURL),
+                  backgroundImage:
+                      NetworkImage(conversation.participants.first.imageURL),
                 ),
               ),
               Column(
@@ -53,7 +55,9 @@ class ConversationScreenAppBar extends StatelessWidget implements PreferredSizeW
                   Row(
                     children: [
                       Text(
-                        languageJumbotron["status-$formattedStatus"],
+                        formattedStatus != "offline"
+                            ? languageJumbotron["status-$formattedStatus"]
+                            : "3 ${languageJumbotron["minute-ago"]}",
                         style: TextStyle(fontSize: 14, color: Colors.grey),
                       ),
                       _getStatusUI(conversation.participants.first.status)

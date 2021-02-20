@@ -17,6 +17,7 @@ class ChatBubble extends StatefulWidget {
 
 class _ChatBubbleState extends State<ChatBubble> {
   bool infoShowed = false;
+  // TODO(chase): Animation on info appear
   Widget _meridium() => Container(
         margin: EdgeInsets.only(top: 10, bottom: 5),
         child: Text(

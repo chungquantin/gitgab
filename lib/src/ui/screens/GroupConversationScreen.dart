@@ -22,7 +22,7 @@ class _GroupConversationScreenState extends State<GroupConversationScreen> {
         resizeToAvoidBottomInset: true,
         resizeToAvoidBottomPadding: false,
         backgroundColor: Theme.of(context).primaryColor,
-        appBar: GroupConversationAppBar(conversation: widget.conversation),
+        appBar: GroupConversaionAppBar(conversation: widget.conversation),
         body: Container(
           child: Column(
             children: [

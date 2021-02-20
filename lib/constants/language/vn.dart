@@ -29,8 +29,8 @@ class VN extends LanguagePack {
     // Time
     "minutes-ago": "phút trước",
     "minute-ago": "phút trước",
-    "hour-ago": "tiếng trước",
-    "hours-ago": "tiếng trước",
+    "hour-ago": "giờ trước",
+    "hours-ago": "giờ trước",
     "day-ago": "ngày trước",
     "days-ago": "ngày trước",
     // Setting

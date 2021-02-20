@@ -113,7 +113,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   List<BottomNavigationBarItem> _getNavigationBarItems() {
     dynamic languageJumbotron =
-        Language.of(context).currentLanguagePack.jumbotron;
+        Language.of(context, listen: true).currentLanguagePack.jumbotron;
     return [
       BottomNavigationBarItem(
         icon: IconWithBadge(
