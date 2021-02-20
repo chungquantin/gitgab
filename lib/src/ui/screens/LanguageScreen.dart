@@ -9,15 +9,14 @@ class LanguageScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Map<String, String> languageJumbotron =
-        Language.of(context, listen: true).currentLanguagePack.jumbotron;
+    LanguagePack LANG = Language.of(context, listen: true).currentLanguagePack;
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
       appBar: AppBar(
         elevation: 0.0,
         leading: IconButton(
             icon: Icon(Icons.close), onPressed: () => Navigator.pop(context)),
-        title: Text(languageJumbotron["language-setting"]),
+        title: Text(LANG.jumbotron["language-setting"]),
       ),
       body: Column(
         children: [
@@ -28,11 +27,14 @@ class LanguageScreen extends StatelessWidget {
                   print("value");
                 },
                 placeholder:
-                    languageJumbotron["language-search-button-placeholder"],
+                    LANG.jumbotron["language-search-button-placeholder"],
               )),
           Expanded(
             child: ListView.builder(
                 itemBuilder: (BuildContext context, int index) {
+                  String COUNTRY_CODE = LanguageEnum.values[index]
+                      .toString()
+                      .replaceAll("LanguageEnum.", "");
                   List<String> headers = Language.of(context).getHeader;
                   return InkWell(
                     splashColor: Colors.transparent,
@@ -52,22 +54,18 @@ class LanguageScreen extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      Language.of(context)
-                                          .currentLanguagePack
-                                          .language[headers[index]],
+                                      LANG.language[headers[index]],
                                       style:
                                           Theme.of(context).textTheme.bodyText2,
                                     ),
-                                    Text("Vietnamese",
+                                    Text(LANG.local[COUNTRY_CODE],
                                         style: Theme.of(context)
                                             .textTheme
                                             .bodyText1),
                                   ],
                                 ),
                                 Spacer(),
-                                Text(LanguageEnum.values[index]
-                                    .toString()
-                                    .replaceAll("LanguageEnum.", "")),
+                                Text(COUNTRY_CODE),
                               ]),
                         ),
                         index != LanguageEnum.values.length - 1

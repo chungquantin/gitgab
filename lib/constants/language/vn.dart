@@ -41,6 +41,6 @@ class VN extends LanguagePack {
 
   Map<String, String> local = {
     "VN": "Tiếng Việt",
-    "EN": "English"
+    "EN": "Tiếng Anh"
   };
 }
