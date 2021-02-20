@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_v2/constants/language/index.dart';
 import 'package:flutter_chat_v2/constants/mock/data.dart';
-import 'package:flutter_chat_v2/container/chat/ChatScreenFlexibleSpaceArea.dart';
-import 'package:flutter_chat_v2/screens/SettingScreen.dart';
+import 'package:flutter_chat_v2/src/ui/container/chat/ChatScreenFlexibleSpaceArea.dart';
+import 'package:flutter_chat_v2/src/ui/screens/SettingScreen.dart';
 import 'package:flutter_chat_v2/utils/stringFormatter.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 

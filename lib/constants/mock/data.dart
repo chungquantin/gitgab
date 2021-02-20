@@ -1,10 +1,10 @@
-import 'package:flutter_chat_v2/components/common/UserStatus.dart';
+import 'package:flutter_chat_v2/src/ui/components/common/UserStatus.dart';
 import 'package:flutter_chat_v2/constants/language/index.dart';
 import 'package:flutter_chat_v2/constants/mock/conversation.dart';
 import 'package:flutter_chat_v2/constants/mock/message.dart';
 import 'package:flutter_chat_v2/constants/mock/setting.dart';
 import 'package:flutter_chat_v2/constants/mock/user.dart';
-import 'package:flutter_chat_v2/constants/theme/themes.dart';
+import 'package:flutter_chat_v2/src/theme/themes.dart';
 
 class UserMockData {
   User currentUser = listOfUsers[0];

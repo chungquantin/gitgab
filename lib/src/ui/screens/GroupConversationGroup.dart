@@ -1,28 +1,28 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_chat_v2/components/chat/ChatComposer.dart';
-import 'package:flutter_chat_v2/components/common/ReusableChatArea.dart';
+import 'package:flutter_chat_v2/src/ui/components/chat/ChatComposer.dart';
+import 'package:flutter_chat_v2/src/ui/components/common/ReusableChatArea.dart';
 import 'package:flutter_chat_v2/constants/mock/conversation.dart';
-import 'package:flutter_chat_v2/container/conversation/ConversationScreenAppBar.dart';
+import 'package:flutter_chat_v2/src/ui/container/conversation/GroupConversationAppBar.dart';
 
-enum ChatBubblePosition { first, middle, last }
-
-class ConversationScreen extends StatefulWidget {
+class GroupConversationScreen extends StatefulWidget {
   final Conversation conversation;
-  ConversationScreen({Key key, @required this.conversation}) : super(key: key);
+  GroupConversationScreen({Key key, @required this.conversation})
+      : super(key: key);
 
   @override
-  _ConversationScreenState createState() => _ConversationScreenState();
+  _GroupConversationScreenState createState() =>
+      _GroupConversationScreenState();
 }
 
-class _ConversationScreenState extends State<ConversationScreen> {
+class _GroupConversationScreenState extends State<GroupConversationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         resizeToAvoidBottomInset: true,
         resizeToAvoidBottomPadding: false,
         backgroundColor: Theme.of(context).primaryColor,
-        appBar: ConversationScreenAppBar(conversation: widget.conversation),
+        appBar: GroupConversationAppBar(conversation: widget.conversation),
         body: Container(
           child: Column(
             children: [

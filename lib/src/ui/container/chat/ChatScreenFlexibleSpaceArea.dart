@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_chat_v2/components/common/ReusableSearchBar.dart';
+import 'package:flutter_chat_v2/src/ui/components/common/ReusableSearchBar.dart';
 import 'package:flutter_chat_v2/constants/language/index.dart';
 
 class ChatScreenFlexibleSpaceArea extends StatelessWidget {
