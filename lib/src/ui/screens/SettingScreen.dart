@@ -4,7 +4,6 @@ import 'package:flutter_chat_v2/src/ui/components/setting/SettingSeparator.dart'
 import 'package:flutter_chat_v2/constants/language/index.dart';
 import 'package:flutter_chat_v2/constants/mock/data.dart';
 import 'package:flutter_chat_v2/src/theme/themes.dart';
-import 'package:flutter_chat_v2/src/ui/screens/ThemeSettingScreen.dart';
 import 'package:flutter_chat_v2/utils/stringFormatter.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -16,16 +15,15 @@ class SettingScreen extends StatefulWidget {
 }
 
 class _SettingScreenState extends State<SettingScreen> {
-  bool isSwitched = AppTheme().currentThemeKey == AppThemeKeys.dark;
-
   @override
   Widget build(BuildContext context) {
-    LanguagePack LANG = Language.of(context, listen: true).currentLanguagePack;
+    bool isSwitched = AppTheme.of(context).currentThemeKey == AppThemeKeys.dark;
+    LanguagePack _lang = Language.of(context, listen: true).currentLanguagePack;
     return Scaffold(
         appBar: AppBar(
           elevation: 0.0,
           centerTitle: true,
-          title: Text(titleCase(LANG.jumbotron["setting-screen-header"])),
+          title: Text(titleCase(_lang.jumbotron["setting-screen-header"])),
           leading: IconButton(
               icon: Icon(Icons.arrow_back_ios),
               onPressed: () => Navigator.pop(context)
@@ -70,13 +68,13 @@ class _SettingScreenState extends State<SettingScreen> {
                     FaIcon(FontAwesomeIcons.language, size: 17),
                     SizedBox(width: 15),
                     Text(
-                      LANG.jumbotron["language-setting"],
+                      _lang.jumbotron["language-setting"],
                       style: Theme.of(context).textTheme.headline3,
                     ),
                   ],
                   rightChildren: [
                     Text(
-                      LANG.language["language-${LANG.runtimeType.toString()}"],
+                      _lang.language["language-${_lang.runtimeType.toString()}"],
                     )
                   ]),
               SettingSeparator(),
@@ -87,7 +85,7 @@ class _SettingScreenState extends State<SettingScreen> {
                 ),
                 SizedBox(width: 15),
                 Text(
-                  LANG.jumbotron["dark-mode-setting"],
+                  _lang.jumbotron["dark-mode-setting"],
                   style: Theme.of(context).textTheme.headline3,
                 ),
               ], rightChildren: [
@@ -119,7 +117,7 @@ class _SettingScreenState extends State<SettingScreen> {
                     ),
                     SizedBox(width: 15),
                     Text(
-                      LANG.jumbotron["theme-setting"],
+                      _lang.jumbotron["theme-setting"],
                       style: Theme.of(context).textTheme.headline3,
                     ),
                   ],

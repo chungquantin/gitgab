@@ -18,6 +18,7 @@ class ChatBubble extends StatefulWidget {
 class _ChatBubbleState extends State<ChatBubble> {
   bool infoShowed = false;
   Widget _meridium() => Container(
+        margin: EdgeInsets.only(top: 10, bottom: 5),
         child: Text(
           DateFormat("hh:mm").format(widget.message.dateTime) +
               " " +
@@ -25,18 +26,10 @@ class _ChatBubbleState extends State<ChatBubble> {
           style: Theme.of(context).textTheme.bodyText1,
         ),
       );
-  Widget _chatInfo(bool displayName) => Container(
-        margin: EdgeInsets.only(top: 10, bottom: 5),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            displayName ? Text(widget.message.sender.name,
-                style: Theme.of(context).textTheme.bodyText1) : Text(""),
-            Spacer(),
-            _meridium()
-          ],
-        ),
-      );
+  Widget _name() => Container(
+      margin: EdgeInsets.only(top: 5, bottom: 7),
+      child: Text(widget.message.sender.name,
+              style: Theme.of(context).textTheme.bodyText1));
   Widget _notMeMessage() => Container(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -57,14 +50,15 @@ class _ChatBubbleState extends State<ChatBubble> {
             Expanded(
               child: Container(
                 margin: EdgeInsets.only(
-                        top: widget.messagePosition == ChatBubblePosition.first
-                            ? 15
-                            : 6,
-                        right: 80,
-                        left: 15),
+                    top: widget.messagePosition == ChatBubblePosition.first
+                        ? 15
+                        : 6,
+                    right: 80,
+                    left: 15),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    infoShowed ? _name() : Container(),
                     InkWell(
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(10),
@@ -92,9 +86,7 @@ class _ChatBubbleState extends State<ChatBubble> {
                         ),
                       ),
                     ),
-                    infoShowed
-                        ? _chatInfo(true)
-                        : Container()
+                    infoShowed ? _meridium() : Container()
                   ],
                 ),
               ),
@@ -114,11 +106,11 @@ class _ChatBubbleState extends State<ChatBubble> {
             Expanded(
               child: Container(
                 margin: EdgeInsets.only(
-                        top: widget.messagePosition == ChatBubblePosition.first
-                            ? 15
-                            : 6,
-                        left: 120,
-                        right: 15),
+                    top: widget.messagePosition == ChatBubblePosition.first
+                        ? 15
+                        : 6,
+                    left: 120,
+                    right: 15),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
@@ -144,9 +136,7 @@ class _ChatBubbleState extends State<ChatBubble> {
                         ),
                       ),
                     ),
-                    infoShowed
-                        ? _chatInfo(false)
-                        : Container()
+                    infoShowed ? _meridium() : Container()
                   ],
                 ),
               ),

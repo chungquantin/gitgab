@@ -2,30 +2,30 @@ import 'package:flutter_chat_v2/constants/language/index.dart';
 class KR extends LanguagePack {
   Map<String, String> jumbotron = {
     // Header
-    "chat-screen-header": "Tin nhắn",
-    "groups-screen-header": "Nhóm",
-    "social-screen-header": "Kết nối",
-    "extension-screen-header": "Mở rộng",
-    "setting-screen-header":"Cài đặt",
+    "chat-screen-header": "메시지",
+    "groups-screen-header": "그룹",
+    "social-screen-header": "사회",
+    "extension-screen-header": "더 보기",
+    "setting-screen-header":"일반",
     // Bottom Navigation Bar
-    "chat-bottom-header": "Tin nhắn",
-    "groups-bottom-header": "Nhóm",
-    "social-bottom-header": "Kết nối",
-    "extension-bottom-header": "Mở rộng",
+    "chat-bottom-header": "메시지",
+    "groups-bottom-header": "그룹",
+    "social-bottom-header": "사회",
+    "extension-bottom-header": "더 보기",
     // Button / Input
-    "search-button-placeholder": "Tìm kiếm",
-    "language-search-button-placeholder":"Tìm kiếm ngôn ngữ",
-    "chat-composer-placeholder": "Nhập vào tin nhắn...",
+    "search-button-placeholder": "검색",
+    "language-search-button-placeholder":"언어를 찾다",
+    "chat-composer-placeholder": "메시지를 입력하다...",
     // Conversation
     "you": "Bạn",
     // Status
-    "status-online": "Trực tuyến",
+    "status-online": "현재 활동 중",
     "status-offline": "Vô tuyến",
-    "status-busy": "Bận",
+    "status-busy": "바쁜",
     "status-none": "Trạng thái ẩn",
     "status-silence": "Không có mặt",
-    "group-member":"Người đóng góp",
-    "group-members":"Người đóng góp",
+    "group-contributor":"Người đóng góp",
+    "group-contributors":"Người đóng góp",
     // Time
     "minutes-ago": "phút trước",
     "minute-ago": "phút trước",
@@ -34,7 +34,7 @@ class KR extends LanguagePack {
     "day-ago": "ngày trước",
     "days-ago": "ngày trước",
     // Setting
-    "language-setting": "Ngôn ngữ",
+    "language-setting": "언어",
     "dark-mode-setting": "Chế độ tối",
     "theme-setting": "Theme",
   };
