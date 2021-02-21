@@ -213,7 +213,8 @@ class ConversationMockData {
               text:
                   "Sed beatae et quis. Sit maxime libero soluta ea. Et deleniti tenetur ea in. Impedit aut facilis aut voluptatibus corrupti. Qui incidunt est accusantium iusto reprehenderit impedit facere autem. Labore fuga eos."),
         ]),
-    Conversation(
+    GroupConversation(
+        groupName: "Javascript",
         id: "conversation-6",
         participants: [
           UserMockData().currentUser,

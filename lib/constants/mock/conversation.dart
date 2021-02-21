@@ -13,7 +13,8 @@ class Conversation {
       {@required this.id,
       @required this.participants,
       @required this.createdAt,
-      @required this.messages});
+      @required this.messages,
+      Key key});
 
   List<User> get getParticipantsExceptCurrentUser {
     List<User> filteredParticipants = this
@@ -32,4 +33,22 @@ class Conversation {
         createdAt: this.createdAt,
         messages: this.messages);
   }
+}
+
+class GroupConversation extends Conversation {
+  final String groupName;
+
+  GroupConversation(
+      {Key key,
+      id,
+      participants,
+      createdAt,
+      messages,
+      @required this.groupName})
+      : super(
+            id: id,
+            participants: participants,
+            createdAt: createdAt,
+            messages: messages,
+            key: key);
 }

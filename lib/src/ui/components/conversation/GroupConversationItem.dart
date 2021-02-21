@@ -8,7 +8,7 @@ import 'package:flutter_chat_v2/src/ui/components/common/UserStatus.dart';
 import 'package:flutter_chat_v2/utils/stringFormatter.dart';
 
 class GroupConversationItem extends StatelessWidget {
-  final Conversation conversation;
+  final GroupConversation conversation;
   const GroupConversationItem({Key key, @required this.conversation})
       : super(key: key);
 
@@ -32,8 +32,12 @@ class GroupConversationItem extends StatelessWidget {
               Container(
                 margin: EdgeInsets.only(right: 15),
                 child: CircleAvatar(
-                  backgroundImage: NetworkImage(to.imageURL),
                   radius: 30,
+                  backgroundColor: Theme.of(context).secondaryHeaderColor,
+                  child: Text(conversation.groupName.substring(0,1), style: TextStyle(
+                    color: Theme.of(context).textTheme.headline3.color, 
+                    fontSize: 25
+                  )),
                 ),
               ),
               UserStatusComp(
@@ -52,7 +56,7 @@ class GroupConversationItem extends StatelessWidget {
                 Expanded(
                     child: Container(
                   child: Text(
-                    to.name,
+                    conversation.groupName,
                     style: Theme.of(context).textTheme.headline3,
                   ),
                 )),
