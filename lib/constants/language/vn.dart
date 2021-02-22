@@ -3,13 +3,13 @@ class VN extends LanguagePack {
   Map<String, String> jumbotron = {
     // Header
     "chat-screen-header": "Tin nhắn",
-    "groups-screen-header": "Nhóm",
+    "groups-screen-header": "Tổ chức",
     "social-screen-header": "Kết nối",
     "extension-screen-header": "Mở rộng",
     "setting-screen-header":"Cài đặt",
     // Bottom Navigation Bar
     "chat-bottom-header": "Tin nhắn",
-    "groups-bottom-header": "Nhóm",
+    "groups-bottom-header": "Tổ chức",
     "social-bottom-header": "Kết nối",
     "extension-bottom-header": "Mở rộng",
     // Button / Input

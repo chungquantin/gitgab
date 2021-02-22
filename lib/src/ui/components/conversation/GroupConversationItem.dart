@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_chat_v2/constants/language/index.dart';
 import 'package:flutter_chat_v2/constants/mock/conversation.dart';
 import 'package:flutter_chat_v2/constants/mock/message.dart';
-import 'package:flutter_chat_v2/constants/mock/user.dart';
 import 'package:flutter_chat_v2/core/utils/isCurrentUser.dart';
 import 'package:flutter_chat_v2/src/ui/components/common/UserStatus.dart';
 import 'package:flutter_chat_v2/utils/stringFormatter.dart';
@@ -14,7 +13,6 @@ class GroupConversationItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    User to = this.conversation.participants.first;
     dynamic languageJumbotron =
         Language.of(context).currentLanguagePack.jumbotron;
     Message lastMessage =
@@ -41,9 +39,9 @@ class GroupConversationItem extends StatelessWidget {
                 ),
               ),
               UserStatusComp(
-                status: isCurrentUser(to)
+                status: isCurrentUser(lastMessage.sender)
                     ? UserStatus.none
-                    : to.status,
+                    : lastMessage.sender.status,
               )
             ],
           ),
@@ -77,7 +75,7 @@ class GroupConversationItem extends StatelessWidget {
           ),
           Spacer(),
           this.conversation.messages.any((msg) => msg.unread == true) &&
-                  !isCurrentUser(to)
+                  !isCurrentUser(lastMessage.sender)
               ? Container(
                   padding: EdgeInsets.symmetric(vertical: 2, horizontal: 10),
                   decoration: BoxDecoration(

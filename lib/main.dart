@@ -67,48 +67,37 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
-      body: SafeArea(child: this._getBody()),
-      floatingActionButton: this._getFloatingButton(),
-      bottomNavigationBar: Container(
-        padding: EdgeInsets.all(10),
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(5),
-          child: BottomNavigationBar(
-            selectedItemColor:
-                Theme.of(context).bottomNavigationBarTheme.selectedItemColor,
-            unselectedItemColor:
-                Theme.of(context).bottomNavigationBarTheme.unselectedItemColor,
-            backgroundColor:
-                Theme.of(context).bottomNavigationBarTheme.backgroundColor,
-            type: BottomNavigationBarType.fixed,
-            currentIndex: __selectedIndex,
-            items: this._getNavigationBarItems(),
-            onTap: (int index) {
-              setState(() {
-                __selectedIndex = index;
-              });
-            },
-          ),
-        ),
-      ),
+      body: SafeArea(
+          child: Stack(
+        children: [
+          this._getBody(),
+          buildBottomNavigationBar(context)
+        ],
+      )),
     );
   }
 
-  dynamic _getFloatingButton() {
-    switch (this.__selectedIndex) {
-      case 0:
-        return FloatingActionButton(
-          onPressed: () {},
-          child: Icon(CupertinoIcons.create),
-        );
-      case 1:
-        return FloatingActionButton(
-          onPressed: () {},
-          child: Icon(Icons.group_add),
-        );
-      default:
-        break;
-    }
+  Widget buildBottomNavigationBar(BuildContext context) {
+    return Align(
+      alignment: Alignment.bottomCenter,
+      child: BottomNavigationBar(
+        elevation: 0.0,
+        selectedItemColor:
+            Theme.of(context).bottomNavigationBarTheme.selectedItemColor,
+        unselectedItemColor:
+            Theme.of(context).bottomNavigationBarTheme.unselectedItemColor,
+        backgroundColor:
+            Theme.of(context).bottomNavigationBarTheme.backgroundColor,
+        type: BottomNavigationBarType.fixed,
+        currentIndex: __selectedIndex,
+        items: this._getNavigationBarItems(),
+        onTap: (int index) {
+          setState(() {
+            __selectedIndex = index;
+          });
+        },
+      ),
+    );
   }
 
   List<BottomNavigationBarItem> _getNavigationBarItems() {

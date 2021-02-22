@@ -5,6 +5,7 @@ import 'package:flutter_chat_v2/constants/mock/conversation.dart';
 import 'package:flutter_chat_v2/constants/mock/data.dart';
 import 'package:flutter_chat_v2/src/ui/container/chat/ChatScreenSliverAppBar.dart';
 import 'package:flutter_chat_v2/src/ui/screens/ConversationScreen.dart';
+import 'package:flutter_chat_v2/src/ui/screens/GroupConversationScreen.dart';
 
 class ChatScreen extends StatelessWidget {
   const ChatScreen({Key key}) : super(key: key);
@@ -22,23 +23,24 @@ class ChatScreen extends StatelessWidget {
                 SliverChildBuilderDelegate((BuildContext context, int index) {
           Conversation currentConversation = conversationByCurrentUser[index];
           Widget conversationComponent;
-          if (currentConversation.getParticipantsExceptCurrentUser.length <= 1) {
+          Widget conversationScreen;
+          if (currentConversation.getParticipantsExceptCurrentUser.length <=
+              1) {
             conversationComponent = ConversationItem(
               conversation: currentConversation.getFilterConversation,
             );
-          } else {
-            conversationComponent = GroupConversationItem(
-              conversation: currentConversation
+            conversationScreen = ConversationScreen(
+              conversation: currentConversation.getFilterConversation,
             );
+          } else {
+            conversationComponent =
+                GroupConversationItem(conversation: currentConversation);
+            conversationScreen =
+                GroupConversationScreen(conversation: currentConversation);
           }
           return InkWell(
-              onTap: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => ConversationScreen(
-                            conversation:
-                                currentConversation.getFilterConversation,
-                          ))),
+              onTap: () => Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => conversationScreen)),
               child: conversationComponent);
         }, childCount: conversationByCurrentUser.length))
       ],

@@ -4,13 +4,13 @@ class EN extends LanguagePack {
   Map<String, String> jumbotron = {
     // Header
     "chat-screen-header": "Chats",
-    "groups-screen-header": "Groups",
+    "groups-screen-header": "Organizations",
     "social-screen-header": "Social",
     "extension-screen-header": "Extension",
     "setting-screen-header": "Settings",
     // Bottom Navigation Bar
     "chat-bottom-header": "Chat",
-    "groups-bottom-header": "Group",
+    "groups-bottom-header": "Organization",
     "social-bottom-header": "Social",
     "extension-bottom-header": "Extension",
     // Button / Input
