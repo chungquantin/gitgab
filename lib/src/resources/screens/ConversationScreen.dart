@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_chat_v2/src/ui/components/chat/ChatComposer.dart';
-import 'package:flutter_chat_v2/src/ui/components/common/ReusableChatArea.dart';
+import 'package:flutter_chat_v2/src/resources/components/chat/ChatComposer.dart';
+import 'package:flutter_chat_v2/src/resources/components/common/ReusableChatArea.dart';
 import 'package:flutter_chat_v2/constants/mock/conversation.dart';
-import 'package:flutter_chat_v2/src/ui/container/conversation/ConversationScreenAppBar.dart';
+import 'package:flutter_chat_v2/src/resources/container/conversation/ConversationScreenAppBar.dart';
 
 enum ChatBubblePosition { first, middle, last }
 

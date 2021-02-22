@@ -24,8 +24,8 @@ class KR extends LanguagePack {
     "status-busy": "바쁜",
     "status-none": "해제",
     "status-silence": "침묵 모드",
-    "group-contributor":"기고자",
-    "group-contributors":"기고자",
+    "group-member":"기고자",
+    "group-members":"기고자",
     // Time
     "minutes-ago": "분 전에 활동",
     "minute-ago": "분 전에 활동",

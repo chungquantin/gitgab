@@ -3,9 +3,9 @@ import 'package:flutter_chat_v2/constants/language/index.dart';
 import 'package:flutter_chat_v2/constants/mock/conversation.dart';
 import 'package:flutter_chat_v2/constants/mock/message.dart';
 import 'package:flutter_chat_v2/core/utils/isCurrentUser.dart';
-import 'package:flutter_chat_v2/src/ui/components/common/UserStatus.dart';
-import 'package:flutter_chat_v2/src/ui/components/conversation/GroupConversationAvatar.dart';
-import 'package:flutter_chat_v2/utils/stringFormatter.dart';
+import 'package:flutter_chat_v2/src/resources/components/common/UserStatus.dart';
+import 'package:flutter_chat_v2/src/resources/components/conversation/GroupConversationAvatar.dart';
+import 'package:flutter_chat_v2/src/utils/stringFormatter.dart';
 
 class GroupConversationItem extends StatelessWidget {
   final GroupConversation conversation;

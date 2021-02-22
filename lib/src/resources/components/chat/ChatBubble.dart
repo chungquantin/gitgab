@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_v2/constants/mock/message.dart';
-import 'package:flutter_chat_v2/src/ui/screens/ConversationScreen.dart';
-import 'package:flutter_chat_v2/utils/date.dart';
+import 'package:flutter_chat_v2/src/resources/screens/ConversationScreen.dart';
+import 'package:flutter_chat_v2/src/utils/date.dart';
 import 'package:flutter_chat_v2/core/utils/isCurrentUser.dart';
 import 'package:intl/intl.dart';
 

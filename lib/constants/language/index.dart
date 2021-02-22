@@ -3,7 +3,7 @@ import 'package:flutter_chat_v2/constants/language/en.dart';
 import 'package:flutter_chat_v2/constants/language/kr.dart';
 import 'package:flutter_chat_v2/constants/language/vn.dart';
 import 'package:flutter_chat_v2/constants/mock/data.dart';
-import 'package:flutter_chat_v2/utils/assetUtil.dart';
+import 'package:flutter_chat_v2/src/utils/assetUtil.dart';
 import 'package:provider/provider.dart';
 
 enum LanguageEnum { VN, EN, KR }

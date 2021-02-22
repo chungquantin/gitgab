@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_chat_v2/src/ui/components/common/ReusableSearchBar.dart';
+import 'package:flutter_chat_v2/src/resources/components/common/ReusableSearchBar.dart';
 import 'package:flutter_chat_v2/constants/language/index.dart';
-import 'package:flutter_chat_v2/src/ui/components/setting/SettingSeparator.dart';
+import 'package:flutter_chat_v2/src/resources/components/setting/SettingSeparator.dart';
 
 class LanguageScreen extends StatelessWidget {
   const LanguageScreen({Key key}) : super(key: key);

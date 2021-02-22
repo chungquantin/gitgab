@@ -24,8 +24,8 @@ class VN extends LanguagePack {
     "status-busy": "Bận",
     "status-none": "Trạng thái ẩn",
     "status-silence": "Không có mặt",
-    "group-contributor":"Người đóng góp",
-    "group-contributors":"Người đóng góp",
+    "group-member":"Thành viên",
+    "group-members":"Thành viên",
     // Time
     "minutes-ago": "phút trước",
     "minute-ago": "phút trước",

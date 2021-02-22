@@ -1,13 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_chat_v2/src/ui/components/common/IconWithBadge.dart';
+import 'package:flutter_chat_v2/src/resources/components/common/IconWithBadge.dart';
 import 'package:flutter_chat_v2/constants/language/index.dart';
-import 'package:flutter_chat_v2/src/ui/screens/ChatScreen.dart';
+import 'package:flutter_chat_v2/src/resources/screens/ChatScreen.dart';
 import 'package:flutter_chat_v2/src/theme/themes.dart';
-import 'package:flutter_chat_v2/src/ui/screens/LanguageScreen.dart';
-import 'package:flutter_chat_v2/src/ui/screens/OrganizationScreen.dart';
-import 'package:flutter_chat_v2/src/ui/screens/SettingScreen.dart';
-import 'package:flutter_chat_v2/src/ui/screens/ThemeSettingScreen.dart';
+import 'package:flutter_chat_v2/src/resources/screens/LanguageScreen.dart';
+import 'package:flutter_chat_v2/src/resources/screens/OrganizationScreen.dart';
+import 'package:flutter_chat_v2/src/resources/screens/SettingScreen.dart';
+import 'package:flutter_chat_v2/src/resources/screens/ThemeSettingScreen.dart';
 import 'package:provider/provider.dart';
 
 void main() {

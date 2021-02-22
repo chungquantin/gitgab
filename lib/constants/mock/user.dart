@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_chat_v2/src/ui/components/common/UserStatus.dart';
+import 'package:flutter_chat_v2/src/resources/components/common/UserStatus.dart';
 import 'package:flutter_chat_v2/constants/mock/conversation.dart';
 import 'package:flutter_chat_v2/constants/mock/data.dart';
 import 'package:flutter_chat_v2/constants/mock/group.dart';

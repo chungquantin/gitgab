@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_chat_v2/src/ui/components/common/UserStatus.dart';
+import 'package:flutter_chat_v2/src/resources/components/common/UserStatus.dart';
 import 'package:flutter_chat_v2/constants/language/index.dart';
 import 'package:flutter_chat_v2/constants/mock/conversation.dart';
-import 'package:flutter_chat_v2/src/ui/container/conversation/common/AppBarLeading.dart';
+import 'package:flutter_chat_v2/src/resources/container/conversation/common/AppBarLeading.dart';
 
 class ConversationScreenAppBar extends StatelessWidget
     implements PreferredSizeWidget {

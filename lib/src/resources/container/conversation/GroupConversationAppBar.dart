@@ -2,9 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_v2/constants/language/index.dart';
 import 'package:flutter_chat_v2/constants/mock/conversation.dart';
-import 'package:flutter_chat_v2/constants/mock/data.dart';
-import 'package:flutter_chat_v2/src/ui/components/conversation/GroupConversationAvatar.dart';
-import 'package:flutter_chat_v2/src/ui/container/conversation/common/AppBarLeading.dart';
+import 'package:flutter_chat_v2/src/resources/components/conversation/GroupConversationAvatar.dart';
+import 'package:flutter_chat_v2/src/resources/container/conversation/common/AppBarLeading.dart';
 
 class GroupConversaionAppBar extends StatelessWidget
     implements PreferredSizeWidget {
@@ -38,8 +37,8 @@ class GroupConversaionAppBar extends StatelessWidget
                       conversation.participants.length.toString() +
                           " " +
                           (conversation.participants.length > 1
-                                  ? languageJumbotron["group-contributors"]
-                                  : languageJumbotron["group-contributor"])
+                                  ? languageJumbotron["group-members"]
+                                  : languageJumbotron["group-member"])
                               .toString()
                               .toLowerCase(),
                       style: TextStyle(fontSize: 14, color: Colors.grey),

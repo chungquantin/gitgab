@@ -25,8 +25,8 @@ class EN extends LanguagePack {
     "status-busy": "Busy",
     "status-none": "Unavailable",
     "status-silence": "No bother",
-    "group-contributor": "Contributor",
-    "group-contributors": "Contributors",
+    "group-member": "Members",
+    "group-members": "Members",
     // Time
     "minutes-ago": "minutes ago",
     "minute-ago": "minute ago",
