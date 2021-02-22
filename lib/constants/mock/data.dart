@@ -100,7 +100,7 @@ class ConversationMockData {
               text: "Rat vui duoc lam quen voi ban"),
           Message(
               dateTime: DateTime.now(),
-              sender: UserMockData().currentUser,
+              sender: UserMockData().getMockUsers[1],
               unread: true,
               text:
                   "Sed beatae et quis. Sit maxime libero soluta ea. Et deleniti tenetur ea in. Impedit aut facilis aut voluptatibus corrupti. Qui incidunt est accusantium iusto reprehenderit impedit facere autem. Labore fuga eos.")

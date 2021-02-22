@@ -30,7 +30,7 @@ class _ChatBubbleState extends State<ChatBubble> {
   Widget _name() => Container(
       margin: EdgeInsets.only(top: 5, bottom: 7),
       child: Text(widget.message.sender.name,
-              style: Theme.of(context).textTheme.bodyText1));
+          style: Theme.of(context).textTheme.bodyText1));
   Widget _notMeMessage() => Container(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -148,6 +148,8 @@ class _ChatBubbleState extends State<ChatBubble> {
 
   @override
   Widget build(BuildContext context) {
+    print(widget.messagePosition);
+
     return isCurrentUser(widget.message.sender)
         ? _meMessage()
         : _notMeMessage();
