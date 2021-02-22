@@ -5,6 +5,7 @@ import 'package:flutter_chat_v2/constants/language/index.dart';
 import 'package:flutter_chat_v2/src/ui/screens/ChatScreen.dart';
 import 'package:flutter_chat_v2/src/theme/themes.dart';
 import 'package:flutter_chat_v2/src/ui/screens/LanguageScreen.dart';
+import 'package:flutter_chat_v2/src/ui/screens/OrganizationScreen.dart';
 import 'package:flutter_chat_v2/src/ui/screens/SettingScreen.dart';
 import 'package:flutter_chat_v2/src/ui/screens/ThemeSettingScreen.dart';
 import 'package:provider/provider.dart';
@@ -69,10 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
       backgroundColor: Theme.of(context).primaryColor,
       body: SafeArea(
           child: Stack(
-        children: [
-          this._getBody(),
-          buildBottomNavigationBar(context)
-        ],
+        children: [this._getBody(), buildBottomNavigationBar(context)],
       )),
     );
   }
@@ -141,7 +139,11 @@ class _MyHomePageState extends State<MyHomePage> {
       case 0:
         return ChatScreen();
       case 1:
-        return Text("Screen 1");
+        return OrganizationScreen();
+      case 2:
+        return Text("Social");
+      case 3:
+        return Text("Extension");
       default:
         return Container();
     }

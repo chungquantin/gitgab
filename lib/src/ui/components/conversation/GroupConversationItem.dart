@@ -4,6 +4,7 @@ import 'package:flutter_chat_v2/constants/mock/conversation.dart';
 import 'package:flutter_chat_v2/constants/mock/message.dart';
 import 'package:flutter_chat_v2/core/utils/isCurrentUser.dart';
 import 'package:flutter_chat_v2/src/ui/components/common/UserStatus.dart';
+import 'package:flutter_chat_v2/src/ui/components/conversation/GroupConversationAvatar.dart';
 import 'package:flutter_chat_v2/utils/stringFormatter.dart';
 
 class GroupConversationItem extends StatelessWidget {
@@ -28,20 +29,14 @@ class GroupConversationItem extends StatelessWidget {
             alignment: Alignment.bottomLeft,
             children: [
               Container(
-                margin: EdgeInsets.only(right: 15),
-                child: CircleAvatar(
-                  radius: 30,
-                  backgroundColor: Theme.of(context).secondaryHeaderColor,
-                  child: Text(conversation.groupName.substring(0,1), style: TextStyle(
-                    color: Theme.of(context).textTheme.headline3.color, 
-                    fontSize: 25
-                  )),
-                ),
-              ),
+                  margin: EdgeInsets.only(right: 15),
+                  child: GroupConversationAvatar(
+                      radius: 30, groupName: conversation.groupName)),
               UserStatusComp(
-                status: isCurrentUser(lastMessage.sender)
-                    ? UserStatus.none
-                    : lastMessage.sender.status,
+                status: conversation.participants.any((participant) =>
+                        participant.status == UserStatus.online)
+                    ? lastMessage.sender.status
+                    : UserStatus.none,
               )
             ],
           ),

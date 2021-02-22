@@ -33,6 +33,18 @@ class Conversation {
         createdAt: this.createdAt,
         messages: this.messages);
   }
+
+  User get to {
+    return this.getParticipantsExceptCurrentUser.first;
+  }
+
+  int get countUnreadMessage {
+    return this.messages.where((message) => message.unread == true).length;
+  }
+
+  bool get hasUnreadMessage {
+    return this.messages.any((message) => message.unread == true);
+  }
 }
 
 class GroupConversation extends Conversation {
@@ -45,6 +57,16 @@ class GroupConversation extends Conversation {
       createdAt,
       messages,
       @required this.groupName})
+      : super(
+            id: id,
+            participants: participants,
+            createdAt: createdAt,
+            messages: messages,
+            key: key);
+}
+
+class DirectConversation extends Conversation {
+  DirectConversation({Key key, id, participants, createdAt, messages})
       : super(
             id: id,
             participants: participants,

@@ -34,4 +34,22 @@ class User {
     }
     return res;
   }
+
+  // TODO Extract to repository
+
+  bool get hasUnreadConversation {
+    return this.getConversation.any((conv) => conv.hasUnreadMessage);
+  }
+
+  int get countUnreadConversation {
+    return this.getConversation.where((conv) => conv.hasUnreadMessage).length;
+  }
+
+  int get countTotalUnreadMessage {
+    int res = 0;
+    this.getConversation.forEach((conv) {
+      res += conv.countUnreadMessage;
+    });
+    return res;
+  }
 }

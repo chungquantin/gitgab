@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_chat_v2/src/ui/components/common/UserStatus.dart';
 import 'package:flutter_chat_v2/constants/language/index.dart';
 import 'package:flutter_chat_v2/constants/mock/conversation.dart';
+import 'package:flutter_chat_v2/src/ui/container/conversation/common/AppBarLeading.dart';
 
 class ConversationScreenAppBar extends StatelessWidget
     implements PreferredSizeWidget {
@@ -45,13 +46,13 @@ class ConversationScreenAppBar extends StatelessWidget
                 margin: EdgeInsets.only(right: 15),
                 child: CircleAvatar(
                   backgroundImage:
-                      NetworkImage(conversation.participants.first.imageURL),
+                      NetworkImage(conversation.to.imageURL),
                 ),
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(conversation.participants.first.name),
+                  Text(conversation.to.name),
                   Row(
                     children: [
                       Text(
@@ -60,7 +61,7 @@ class ConversationScreenAppBar extends StatelessWidget
                             : "3 ${languageJumbotron["minute-ago"]}",
                         style: TextStyle(fontSize: 14, color: Colors.grey),
                       ),
-                      _getStatusUI(conversation.participants.first.status)
+                      _getStatusUI(conversation.to.status)
                     ],
                   )
                 ],
@@ -71,19 +72,7 @@ class ConversationScreenAppBar extends StatelessWidget
       ),
       centerTitle: false,
       elevation: 0.0,
-      leading: GestureDetector(
-        onTap: () {
-          print("Current Avatar tapped!");
-        },
-        child: Container(
-            margin: EdgeInsets.only(top: 10, left: 13, bottom: 10, right: 13),
-            decoration: BoxDecoration(shape: BoxShape.circle),
-            child: IconButton(
-                icon: Icon(Icons.arrow_back_ios),
-                onPressed: () {
-                  Navigator.pop(context);
-                })),
-      ),
+      leading:  AppBarLeading(),
       actions: [
         IconButton(icon: Icon(Icons.call), onPressed: () {}),
         IconButton(
