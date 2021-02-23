@@ -31,7 +31,7 @@ class IconWithBadge extends StatelessWidget {
                       this.badge,
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 12,
+                        fontSize: 11,
                       ),
                       textAlign: TextAlign.center,
                     ),

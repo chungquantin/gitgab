@@ -30,9 +30,9 @@ dependencies:
   hexcolor: ^1.0.6
   provider: ^4.0.5
   font_awesome_flutter: ^8.8.1
-  lite_rolling_switch: ^0.1.1
   country_icons: ^1.1.1
   intl: ^0.16.1
+  flutter_platform_widgets: ^0.72.0
 
 dev_dependencies:
   flutter_test:

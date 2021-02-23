@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_chat_v2/constants/language/index.dart';
-
 class ReusableSearchBar extends StatelessWidget {
   final Function onChangeEvent;
   final String placeholder;

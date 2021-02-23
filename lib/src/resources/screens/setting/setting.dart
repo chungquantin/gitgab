@@ -5,6 +5,7 @@ import 'package:flutter_chat_v2/src/resources/screens/setting/local_widgets/sett
 import 'package:flutter_chat_v2/src/resources/screens/setting/local_widgets/setting_separator.dart';
 import 'package:flutter_chat_v2/src/resources/theme/themes.dart';
 import 'package:flutter_chat_v2/src/utils/stringFormatter.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SettingScreen extends StatefulWidget {
@@ -19,6 +20,28 @@ class _SettingScreenState extends State<SettingScreen> {
   Widget build(BuildContext context) {
     bool isSwitched = AppTheme.of(context).currentThemeKey == AppThemeKeys.dark;
     LanguagePack _lang = Language.of(context, listen: true).currentLanguagePack;
+
+    Widget buildAdaptiveSwitch() {
+      return PlatformSwitch(
+        value: isSwitched,
+        onChanged: (value) {
+          setState(() {
+            isSwitched = value;
+            AppTheme.of(context).switchTheme();
+            print(AppTheme.of(context).currentThemeKey);
+          });
+        },
+        material: (_, __) => MaterialSwitchData(
+          activeTrackColor: Theme.of(context).accentColor.withOpacity(0.5),
+          activeColor: Theme.of(context).accentColor,
+          inactiveTrackColor: Colors.grey,
+        ),
+        cupertino: (_, __) => CupertinoSwitchData(
+          activeColor: Theme.of(context).accentColor.withOpacity(0.5),
+        ),
+      );
+    }
+
     return Scaffold(
         appBar: AppBar(
           elevation: 0.0,
@@ -26,8 +49,7 @@ class _SettingScreenState extends State<SettingScreen> {
           title: Text(titleCase(_lang.jumbotron["setting-screen-header"])),
           leading: IconButton(
               icon: Icon(Icons.arrow_back_ios),
-              onPressed: () => Navigator.pop(context)
-              ),
+              onPressed: () => Navigator.pop(context)),
         ),
         backgroundColor: Theme.of(context).primaryColor,
         body: Center(
@@ -74,7 +96,8 @@ class _SettingScreenState extends State<SettingScreen> {
                   ],
                   rightChildren: [
                     Text(
-                      _lang.language["language-${_lang.runtimeType.toString()}"],
+                      _lang
+                          .language["language-${_lang.runtimeType.toString()}"],
                     )
                   ]),
               SettingSeparator(),
@@ -89,24 +112,12 @@ class _SettingScreenState extends State<SettingScreen> {
                   style: Theme.of(context).textTheme.headline3,
                 ),
               ], rightChildren: [
-                Switch(
-                  value: isSwitched,
-                  onChanged: (value) {
-                    setState(() {
-                      isSwitched = value;
-                      AppTheme.of(context).switchTheme();
-                      print(AppTheme.of(context).currentThemeKey);
-                    });
-                  },
-                  activeTrackColor:
-                      Theme.of(context).accentColor.withOpacity(0.5),
-                  activeColor: Theme.of(context).accentColor,
-                  inactiveTrackColor: Colors.grey,
-                ),
+                buildAdaptiveSwitch(),
               ]),
               SettingSeparator(),
               SettingItem(
-                  onTapEvent: () => Navigator.pushNamed(context, "/setting/theme"),
+                  onTapEvent: () =>
+                      Navigator.pushNamed(context, "/setting/theme"),
                   leftChildren: [
                     Container(
                       height: 20,
