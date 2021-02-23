@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_v2/constants/mock/data.dart';
-import 'package:flutter_chat_v2/src/theme/darkTheme.dart';
-import 'package:flutter_chat_v2/src/theme/lightTheme.dart';
+import 'package:flutter_chat_v2/src/resources/theme/darkTheme.dart';
+import 'package:flutter_chat_v2/src/resources/theme/lightTheme.dart';
 import 'package:provider/provider.dart';
 
 enum AppThemeKeys { light, dark }

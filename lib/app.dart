@@ -5,7 +5,7 @@ import 'package:flutter_chat_v2/src/resources/screens/home/home.dart';
 import 'package:flutter_chat_v2/src/resources/screens/language/language.dart';
 import 'package:flutter_chat_v2/src/resources/screens/setting/setting.dart';
 import 'package:flutter_chat_v2/src/resources/screens/theme/theme.dart';
-import 'package:flutter_chat_v2/src/theme/themes.dart';
+import 'package:flutter_chat_v2/src/resources/theme/themes.dart';
 
 class MyApp extends StatelessWidget {
   @override

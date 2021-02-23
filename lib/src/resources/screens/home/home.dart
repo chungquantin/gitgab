@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_v2/src/resources/screens/home/local_widgets/home_navigation_bar_items.dart';
 import 'package:flutter_chat_v2/src/resources/screens/home/local_widgets/home_body.dart';
-import 'package:flutter_chat_v2/src/theme/themes.dart';
+import 'package:flutter_chat_v2/src/resources/theme/themes.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key key}) : super(key: key);

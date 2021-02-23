@@ -4,7 +4,7 @@ import 'package:flutter_chat_v2/constants/mock/message.dart';
 import 'package:flutter_chat_v2/constants/mock/setting.dart';
 import 'package:flutter_chat_v2/constants/mock/user.dart';
 import 'package:flutter_chat_v2/src/resources/widgets/user_status.dart';
-import 'package:flutter_chat_v2/src/theme/themes.dart';
+import 'package:flutter_chat_v2/src/resources/theme/themes.dart';
 
 class UserMockData {
   User currentUser = listOfUsers[0];
