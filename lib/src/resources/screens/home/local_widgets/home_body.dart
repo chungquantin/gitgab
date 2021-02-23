@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_v2/src/resources/screens/chat/chat.dart';
-import 'package:flutter_chat_v2/src/resources/screens/organization/OrganizationScreen.dart';
+import 'package:flutter_chat_v2/src/resources/screens/organization/organization.dart';
 
 @immutable
 class HomeBody extends StatelessWidget {
