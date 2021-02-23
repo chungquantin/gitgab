@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_chat_v2/src/resources/components/common/UserStatus.dart';
 import 'package:flutter_chat_v2/constants/language/index.dart';
 import 'package:flutter_chat_v2/constants/mock/conversation.dart';
-import 'package:flutter_chat_v2/src/resources/container/conversation/common/AppBarLeading.dart';
+import 'package:flutter_chat_v2/src/resources/screens/conversation/local_widgets/conversation_app_bar_leading.dart';
+import 'package:flutter_chat_v2/src/resources/widgets/UserStatus.dart';
 
 class ConversationScreenAppBar extends StatelessWidget
     implements PreferredSizeWidget {
@@ -34,7 +34,7 @@ class ConversationScreenAppBar extends StatelessWidget
                 Border.all(color: Theme.of(context).primaryColor, width: 2)),
       );
     }
-
+    
     return AppBar(
       title: InkWell(
         onTap: () {},

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_chat_v2/src/resources/components/setting/SettingItem.dart';
-import 'package:flutter_chat_v2/src/resources/components/setting/SettingSeparator.dart';
 import 'package:flutter_chat_v2/constants/language/index.dart';
 import 'package:flutter_chat_v2/constants/mock/data.dart';
+import 'package:flutter_chat_v2/src/resources/screens/setting/local_widgets/setting_item.dart';
+import 'package:flutter_chat_v2/src/resources/screens/setting/local_widgets/setting_separator.dart';
 import 'package:flutter_chat_v2/src/theme/themes.dart';
 import 'package:flutter_chat_v2/src/utils/stringFormatter.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';

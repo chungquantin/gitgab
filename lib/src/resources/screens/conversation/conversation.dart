@@ -1,11 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_chat_v2/src/resources/components/chat/ChatComposer.dart';
-import 'package:flutter_chat_v2/src/resources/components/common/ReusableChatArea.dart';
 import 'package:flutter_chat_v2/constants/mock/conversation.dart';
-import 'package:flutter_chat_v2/src/resources/container/conversation/ConversationScreenAppBar.dart';
-
-enum ChatBubblePosition { first, middle, last }
+import 'package:flutter_chat_v2/src/resources/screens/chat/local_widgets/chat_area.dart';
+import 'package:flutter_chat_v2/src/resources/screens/chat/local_widgets/chat_composer.dart';
+import 'package:flutter_chat_v2/src/resources/screens/conversation/local_widgets/conversation_app_bar.dart';
 
 class ConversationScreen extends StatefulWidget {
   final Conversation conversation;

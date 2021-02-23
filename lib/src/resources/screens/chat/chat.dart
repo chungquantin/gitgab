@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_chat_v2/src/resources/components/conversation/ConversationItem.dart';
-import 'package:flutter_chat_v2/src/resources/components/conversation/GroupConversationItem.dart';
 import 'package:flutter_chat_v2/constants/mock/conversation.dart';
 import 'package:flutter_chat_v2/constants/mock/data.dart';
-import 'package:flutter_chat_v2/src/resources/container/chat/ChatScreenSliverAppBar.dart';
-import 'package:flutter_chat_v2/src/resources/screens/ConversationScreen.dart';
-import 'package:flutter_chat_v2/src/resources/screens/GroupConversationScreen.dart';
+import 'package:flutter_chat_v2/src/resources/screens/chat/local_widgets/chat_sliver_app_bar.dart';
+import 'package:flutter_chat_v2/src/resources/screens/conversation/conversation.dart';
+import 'package:flutter_chat_v2/src/resources/screens/conversation/group_conversation.dart';
+import 'package:flutter_chat_v2/src/resources/screens/conversation/local_widgets/conversation_item.dart';
+import 'package:flutter_chat_v2/src/resources/screens/conversation/local_widgets/group_conversation_item.dart';
 
 class ChatScreen extends StatelessWidget {
   const ChatScreen({Key key}) : super(key: key);

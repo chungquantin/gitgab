@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_chat_v2/src/resources/components/common/UserStatus.dart';
 import 'package:flutter_chat_v2/constants/language/index.dart';
 import 'package:flutter_chat_v2/constants/mock/conversation.dart';
 import 'package:flutter_chat_v2/constants/mock/message.dart';
 import 'package:flutter_chat_v2/constants/mock/user.dart';
 import 'package:flutter_chat_v2/core/utils/isCurrentUser.dart';
+import 'package:flutter_chat_v2/src/resources/widgets/UserStatus.dart';
 import 'package:flutter_chat_v2/src/utils/stringFormatter.dart';
 
 class ConversationItem extends StatelessWidget {
