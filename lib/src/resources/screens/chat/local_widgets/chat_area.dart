@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_v2/constants/mock/message.dart';
 import 'package:flutter_chat_v2/src/resources/screens/chat/local_widgets/chat_bubble.dart';
-import 'package:flutter_chat_v2/src/resources/screens/chat/chat_bubble_position.dart';
+import 'package:flutter_chat_v2/src/resources/widgets/chat_bubble_position.dart';
 
 class ReusableChatArea extends StatelessWidget {
   final List<Message> conversationMessages;

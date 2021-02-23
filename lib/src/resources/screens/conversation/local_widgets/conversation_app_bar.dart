@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_chat_v2/constants/language/index.dart';
 import 'package:flutter_chat_v2/constants/mock/conversation.dart';
 import 'package:flutter_chat_v2/src/resources/screens/conversation/local_widgets/conversation_app_bar_leading.dart';
-import 'package:flutter_chat_v2/src/resources/widgets/UserStatus.dart';
+import 'package:flutter_chat_v2/src/resources/widgets/user_status.dart';
 
 class ConversationScreenAppBar extends StatelessWidget
     implements PreferredSizeWidget {

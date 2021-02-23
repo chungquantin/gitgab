@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_v2/constants/language/index.dart';
-import 'package:flutter_chat_v2/src/resources/widgets/ReusableSearchBar.dart';
+import 'package:flutter_chat_v2/src/resources/widgets/search_bar.dart';
 
 class ChatScreenFlexibleSpaceArea extends StatelessWidget {
   const ChatScreenFlexibleSpaceArea({Key key}) : super(key: key);

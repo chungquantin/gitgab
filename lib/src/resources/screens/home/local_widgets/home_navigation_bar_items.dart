@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_v2/constants/language/index.dart';
-import 'package:flutter_chat_v2/src/resources/widgets/IconWithBadge.dart';
+import 'package:flutter_chat_v2/src/resources/widgets/icon_w_badge.dart';
 
 // ignore: non_constant_identifier_names
 List<BottomNavigationBarItem> HomeNavigationBarItems(BuildContext context) {

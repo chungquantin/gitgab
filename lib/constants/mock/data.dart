@@ -3,7 +3,7 @@ import 'package:flutter_chat_v2/constants/mock/conversation.dart';
 import 'package:flutter_chat_v2/constants/mock/message.dart';
 import 'package:flutter_chat_v2/constants/mock/setting.dart';
 import 'package:flutter_chat_v2/constants/mock/user.dart';
-import 'package:flutter_chat_v2/src/resources/widgets/UserStatus.dart';
+import 'package:flutter_chat_v2/src/resources/widgets/user_status.dart';
 import 'package:flutter_chat_v2/src/theme/themes.dart';
 
 class UserMockData {
