@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_chat_v2/constants/language/index.dart';
 import 'package:flutter_chat_v2/constants/mock/conversation.dart';
 import 'package:flutter_chat_v2/src/resources/screens/conversation/local_widgets/conversation_app_bar_leading.dart';
+import 'package:flutter_chat_v2/src/resources/screens/conversation/local_widgets/reusable_app_bar.dart';
 import 'package:flutter_chat_v2/src/resources/widgets/user_status.dart';
 
 class ConversationScreenAppBar extends StatelessWidget
@@ -34,53 +35,21 @@ class ConversationScreenAppBar extends StatelessWidget
                 Border.all(color: Theme.of(context).primaryColor, width: 2)),
       );
     }
-    
-    return AppBar(
-      title: InkWell(
-        onTap: () {},
-        child: Container(
-          margin: EdgeInsets.only(top: 10),
-          child: Row(
-            children: [
-              Container(
-                margin: EdgeInsets.only(right: 15),
-                child: CircleAvatar(
-                  backgroundImage:
-                      NetworkImage(conversation.to.imageURL),
-                ),
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(conversation.to.name),
-                  Row(
-                    children: [
-                      Text(
-                        formattedStatus != "offline"
-                            ? languageJumbotron["status-$formattedStatus"]
-                            : "3 ${languageJumbotron["minute-ago"]}",
-                        style: TextStyle(fontSize: 14, color: Colors.grey),
-                      ),
-                      _getStatusUI(conversation.to.status)
-                    ],
-                  )
-                ],
-              )
-            ],
+
+    return ReusableAppBar(
+        onTapEvent: () {},
+        title: conversation.to.name,
+        subWidget: [
+          Text(
+            formattedStatus != "offline"
+                ? languageJumbotron["status-$formattedStatus"]
+                : "3 ${languageJumbotron["minute-ago"]}",
+            style: TextStyle(fontSize: 14, color: Colors.grey),
           ),
-        ),
-      ),
-      centerTitle: false,
-      elevation: 0.0,
-      leading:  AppBarLeading(),
-      actions: [
-        IconButton(icon: Icon(Icons.call), onPressed: () {}),
-        IconButton(
-          icon: Icon(CupertinoIcons.video_camera_solid),
-          onPressed: () {},
-          iconSize: 32,
-        )
-      ],
-    );
+          _getStatusUI(conversation.to.status)
+        ],
+        avatar: CircleAvatar(
+          backgroundImage: NetworkImage(conversation.to.imageURL),
+        ));
   }
 }

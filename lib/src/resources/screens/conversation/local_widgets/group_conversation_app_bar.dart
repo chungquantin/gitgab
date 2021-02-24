@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_v2/constants/language/index.dart';
 import 'package:flutter_chat_v2/constants/mock/conversation.dart';
-import 'package:flutter_chat_v2/src/resources/screens/conversation/local_widgets/conversation_app_bar_leading.dart';
 import 'package:flutter_chat_v2/src/resources/screens/conversation/local_widgets/group_conversation_avatar.dart';
+import 'package:flutter_chat_v2/src/resources/screens/conversation/local_widgets/reusable_app_bar.dart';
 
 class GroupConversaionAppBar extends StatelessWidget
     implements PreferredSizeWidget {
@@ -18,49 +18,22 @@ class GroupConversaionAppBar extends StatelessWidget
   Widget build(BuildContext context) {
     dynamic languageJumbotron =
         Language.of(context).currentLanguagePack.jumbotron;
-    return AppBar(
-      title: InkWell(
-        onTap: () {},
-        child: Row(
-          children: [
-            Container(
-                margin: EdgeInsets.only(right: 15),
-                child: GroupConversationAvatar(
-                    radius: 21, groupName: conversation.groupName)),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(conversation.groupName),
-                Row(
-                  children: [
-                    Text(
-                      conversation.participants.length.toString() +
-                          " " +
-                          (conversation.participants.length > 1
-                                  ? languageJumbotron["group-members"]
-                                  : languageJumbotron["group-member"])
-                              .toString()
-                              .toLowerCase(),
-                      style: TextStyle(fontSize: 14, color: Colors.grey),
-                    ),
-                  ],
-                )
-              ],
-            )
-          ],
-        ),
-      ),
-      centerTitle: false,
-      elevation: 0.0,
-      leading: AppBarLeading(),
-      actions: [
-        IconButton(icon: Icon(Icons.call), onPressed: () {}),
-        IconButton(
-          icon: Icon(CupertinoIcons.video_camera_solid),
-          onPressed: () {},
-          iconSize: 32,
-        )
-      ],
-    );
+    return ReusableAppBar(
+        onTapEvent: () {},
+        title: conversation.groupName,
+        avatar: GroupConversationAvatar(
+            radius: 21, groupName: conversation.groupName),
+        subWidget: [
+          Text(
+            conversation.participants.length.toString() +
+                " " +
+                (conversation.participants.length > 1
+                        ? languageJumbotron["group-members"]
+                        : languageJumbotron["group-member"])
+                    .toString()
+                    .toLowerCase(),
+            style: TextStyle(fontSize: 14, color: Colors.grey),
+          ),
+        ]);
   }
 }
