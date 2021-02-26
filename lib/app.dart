@@ -1,5 +1,4 @@
-
-
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_v2/src/resources/screens/home/home.dart';
 import 'package:flutter_chat_v2/src/resources/screens/language/language.dart';
@@ -11,6 +10,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+        locale: DevicePreview.locale(context),
+        builder: DevicePreview.appBuilder,
         debugShowCheckedModeBanner: false,
         title: 'GitGab',
         initialRoute: "/",

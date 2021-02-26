@@ -60,7 +60,7 @@ class ConversationItem extends StatelessWidget {
                             ? "${languageJumbotron["you"]}: "
                             : "${lastMessage.sender.name}: ") +
                         lastMessage.text,
-                    30),
+                   30), //TODO responsiveness fix
                 style: Theme.of(context).textTheme.bodyText1,
               ),
             )),

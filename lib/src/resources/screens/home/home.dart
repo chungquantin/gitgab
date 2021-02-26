@@ -32,7 +32,10 @@ class _HomeScreenState extends State<HomeScreen> {
       body: SafeArea(
           child: Stack(
         children: [
-          HomeBody(index: __selectedIndex),
+          Padding(
+            padding: EdgeInsets.only(bottom: 55),
+            child: HomeBody(index: __selectedIndex),  
+          ),
           buildBottomNavigationBar(context)
         ],
       )),
