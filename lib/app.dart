@@ -1,5 +1,6 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_chat_v2/src/core/config/client.dart';
 import 'package:flutter_chat_v2/src/resources/landing/landing.dart';
 import 'package:flutter_chat_v2/src/resources/screens/auth/login.dart';
@@ -14,6 +15,10 @@ import 'package:graphql_flutter/graphql_flutter.dart';
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // Avoid Screen Rotation
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+    ]);
     return GraphQLProvider(
       client: GraphQLConfig.client,
       child: MaterialApp(
