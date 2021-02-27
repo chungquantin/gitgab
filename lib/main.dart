@@ -27,5 +27,3 @@ void main() async {
   ));
 }
 
-
-// AppTheme.of(context, listen: true).currentTheme
