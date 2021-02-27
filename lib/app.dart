@@ -1,6 +1,6 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_chat_v2/core/config/client.dart';
+import 'package:flutter_chat_v2/src/core/config/client.dart';
 import 'package:flutter_chat_v2/src/resources/screens/home/home.dart';
 import 'package:flutter_chat_v2/src/resources/screens/language/language.dart';
 import 'package:flutter_chat_v2/src/resources/screens/setting/setting.dart';

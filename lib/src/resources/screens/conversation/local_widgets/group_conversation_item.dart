@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_chat_v2/constants/language/index.dart';
 import 'package:flutter_chat_v2/constants/mock/conversation.dart';
 import 'package:flutter_chat_v2/constants/mock/message.dart';
-import 'package:flutter_chat_v2/core/utils/isCurrentUser.dart';
+import 'package:flutter_chat_v2/src/core/utils/isCurrentUser.dart';
 import 'package:flutter_chat_v2/src/resources/screens/conversation/local_widgets/group_conversation_avatar.dart';
 import 'package:flutter_chat_v2/src/resources/widgets/user_status.dart';
 import 'package:flutter_chat_v2/src/utils/stringFormatter.dart';

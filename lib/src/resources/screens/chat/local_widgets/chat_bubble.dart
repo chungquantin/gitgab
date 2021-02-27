@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_v2/constants/mock/message.dart';
+import 'package:flutter_chat_v2/src/core/utils/isCurrentUser.dart';
 import 'package:flutter_chat_v2/src/resources/widgets/chat_bubble_position.dart';
 import 'package:flutter_chat_v2/src/utils/date.dart';
-import 'package:flutter_chat_v2/core/utils/isCurrentUser.dart';
 import 'package:intl/intl.dart';
 
 class ChatBubble extends StatefulWidget {
