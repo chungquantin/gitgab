@@ -49,4 +49,5 @@ class LanguagePack {
     "language-EN": "English",
     "language-KR": "한국어"
   };
+  Map<String, String> auth;
 }

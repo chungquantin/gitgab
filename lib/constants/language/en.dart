@@ -45,4 +45,11 @@ class EN extends LanguagePack {
     "EN": "English",
     "KR": "Korean"
   };
+
+  Map<String, String> auth = {
+    "login-header": "Let's sign you in!",
+    "login-title": "Your teammates are waiting for you. Join Gitgab now!",
+    "login-email": "Email address or username",
+    "login-password": "Password"
+  };
 }

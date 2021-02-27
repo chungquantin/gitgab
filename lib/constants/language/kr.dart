@@ -44,4 +44,11 @@ class KR extends LanguagePack {
     "EN": "영어",
     "KR": "한국어"
   };
+
+  Map<String, String> auth = {
+    "login-header": "Let's sign you in!",
+    "login-title": "Your teammates are waiting for you",
+    "login-email": "Email address or username",
+    "login-password": "Password"
+  };
 }

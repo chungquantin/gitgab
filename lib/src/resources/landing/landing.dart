@@ -19,7 +19,7 @@ class _LandingScreenState extends State<LandingScreen> {
 
   _loadUserInfo() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    userId = (prefs.getString("userId") ?? "tin");
+    userId = (prefs.getString("userId") ?? "");
     if (userId.isEmpty) {
       Navigator.pushNamedAndRemoveUntil(
           context, "/login", ModalRoute.withName("/login"));
