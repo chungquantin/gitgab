@@ -34,6 +34,8 @@ dependencies:
   intl: ^0.17.0-nullsafety.2
   flutter_platform_widgets: ^0.72.0
   device_preview: ^0.6.2-beta
+  graphql_flutter: ^4.0.0-beta
+  shared_preferences: ^0.5.7+3
 
 dev_dependencies:
   flutter_test:
