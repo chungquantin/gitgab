@@ -19,12 +19,12 @@ class LoginScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text(languageAuth["login-header"],
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 35)),
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
             SizedBox(
               height: 10,
             ),
             Text(languageAuth["login-title"],
-                style: TextStyle(fontWeight: FontWeight.w300, fontSize: 23)),
+                style: TextStyle(fontWeight: FontWeight.w300, fontSize: 22)),
           ],
         ),
       );
@@ -64,17 +64,53 @@ class LoginScreen extends StatelessWidget {
         ],
       ),
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(35, 50, 35 ,0),
+        child: SingleChildScrollView(
+          padding: EdgeInsets.fromLTRB(30, 50, 30, 0),
+          physics: AlwaysScrollableScrollPhysics(),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               buildHeading(),
               SizedBox(
                 height: size.height / 15,
               ),
-              buildForm()
+              buildForm(),
+              SizedBox(
+                height: 50,
+              ),
+              Center(
+                  child: RichText(
+                text: TextSpan(
+                  text: "Don't have an account? ",
+                  style: TextStyle(
+                      color: Theme.of(context).textTheme.bodyText1.color,
+                      fontSize: 15),
+                  children: <TextSpan>[
+                    TextSpan(
+                        text: 'Register',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Theme.of(context).accentColor)),
+                  ],
+                ),
+              )),
+              SizedBox(
+                height: 15,
+              ),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: RaisedButton(
+                  onPressed: () {},
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(vertical: 15.0),
+                    child: Text('Sign In', style: TextStyle(fontSize: 20)),
+                  ),
+                  color: Theme.of(context).accentColor,
+                  textColor: Colors.white,
+                  elevation: 0,
+                ),
+              ),
             ],
           ),
         ),
