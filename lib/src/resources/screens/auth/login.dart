@@ -101,7 +101,9 @@ class LoginScreen extends StatelessWidget {
               ClipRRect(
                 borderRadius: BorderRadius.circular(20),
                 child: RaisedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, "/");
+                  },
                   child: Padding(
                     padding: EdgeInsets.symmetric(vertical: 15.0),
                     child: Text('Sign In', style: TextStyle(fontSize: 20)),
